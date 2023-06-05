@@ -1,0 +1,45 @@
+<div class="game-wrapInviteFriends">
+    <div class="back-header back-headerInviteFriends">
+        <a href="#"><img src="../../assets/Checkers_Home/back.png" alt="back-btn" class="back-btnInviteFriends"></a>
+        <h2>{{this.langModel.componentLang.createRoomPage.heading[this.langModel.lang]}}</h2>
+    </div>
+    <div class="inner-game-wrapInviteFriends">
+    
+        <div class="redBoxInviteFriends select-bets">
+            <div class="redBoxInviteFriends-header">
+                <span>{{this.langModel.componentLang.createRoomPage.bets[this.langModel.lang]}}</span>
+            </div>
+            <div class="redBoxInviteFriends-body">
+                <a href="javascript:void(0)">
+                    <img src="../../assets/Checkers_Home/addRandom.png" (click)="increaseAmount()">
+                </a>
+                <div class="betInviteFriends-box">
+                    <div>
+                        <span>{{this.langModel.componentLang.createRoomPage.entry[this.langModel.lang]}} </span>
+                        <div><img src="../../assets/img1/coin.png"><span>5</span></div>
+                    </div>
+                    <div>
+                        <span>{{this.langModel.componentLang.createRoomPage.rewards[this.langModel.lang]}} </span>
+                        <div><img src="../../assets/img1/coins.png"><span>500</span></div>
+                    </div>
+                </div>
+                <a href="javascript:void(0)">
+                    <img src="../../assets/Checkers_Home/addRandom.png" (click)="increaseAmount()">
+                </a>
+            </div>
+        </div>
+
+        <div class="redBoxInviteFriends select-bets">
+            <div class="redBoxInviteFriends-header">
+                <span>{{this.langModel.componentLang.createRoomPage.roomcode[this.langModel.lang]}}</span>
+            </div>
+            <div class="redBoxInviteFriends-body">
+                <div class="betInviteFriends-box text-centerInviteFriends" style="font-weight: 700;">{{roomCode}}</div>
+            </div>
+        </div>
+    
+        <button type="submit" class="yellow-btnInviteFriends">{{this.langModel.componentLang.createRoomPage.joinroom[this.langModel.lang]}}</button>
+        <button type="submit" class="green-btnInviteFriends"><img src="../../assets/img1/whatsapp.png">Whatsapp Share</button>
+    
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="game-wrap">
+    <div id="particles-js"></div>
+    
+    <div class="inner-game-wrap">
+        <div class="menu-screen">
+            <div class="user-details">
+                <a *ngIf="this.global.onMobile == false" (click)="back()"><img src="../../assets/img/Login/Button_Back.png" alt="back-btn" class="back-btn back-NewBtn"></a>
+                <div class="user-name" (click)="profileRoute()">
+                    <!-- <img src="../../assets/img/menuScreen/Avatar1.png"> -->
+                    <img src={{avatarimg}}>
+                    <div>{{this.global.userName}}</div>
+                </div>
+                <div class="user-coin">
+                    <div>
+                        <img src="../../assets/img/menuScreen/coins.png">
+                        <span class="coinstxt">{{this.global.coins}} / {{ this.global.moneyAmt}} KZ</span>
+                    </div>
+                    <img (click)="storeClicked()" src="../../assets/img/menuScreen/Add_coins.png">
+                </div>
+            </div>
+            <img src="../../assets/img/Logo.png" alt="logo" class="logo">
+            <div class="menu-game">
+                <div>
+                    <a (click)="ludoGames()">
+                        <img src="../../assets/img/menuScreen/Game1.png">
+                    </a>
+                </div>
+                <div>
+                    <a (click)="checkers()">
+                        <img src="../../assets/img/menuScreen/Game2.png">
+                    </a>
+                </div>
+            </div>
+            <div class="menu-buttons">
+                <div>
+                    <a (click)="setting()">
+                        <img src="../../assets/img/menuScreen/settings.png">
+                        <br>
+                        <span>{{this.langModel.componentLang.homePage.settings[this.langModel.lang]}}</span>
+                        <!-- <span>Definições</span> -->
+                    </a>
+                </div>
+                <div>
+                    <a (click)="storeClicked()">
+                        <img src="../../assets/img/menuScreen/cart.png">
+                        <br>
+                        <span>{{this.langModel.componentLang.homePage.store[this.langModel.lang]}}</span>
+                        <!-- <span>Loja</span> -->
+                    </a>
+                </div>
+                <div>
+                    <a (click)="walletClicked()">
+                        <img src="../../assets/img/menuScreen/wallet.png">
+                        <br>
+                        <span>{{this.langModel.componentLang.homePage.wallet[this.langModel.lang]}}</span>
+                        <!-- <span>Carteira</span> -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-messagepopup (isClaimed)="onClaim($event)"></app-messagepopup>
+<!-- <app-ludo-winner-pop-up ></app-ludo-winner-pop-up> -->

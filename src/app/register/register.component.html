@@ -1,0 +1,74 @@
+<div class="game-wrap" >
+  <div class="back-header">
+    <a (click)="back()"
+      ><img
+        src="../../assets/img/Login/Button_Back.png"
+        alt="back-btn"
+        class="back-btn"
+    /></a>
+    <h2>{{this.langModel.componentLang.createAcc.heading[this.langModel.lang]}}</h2>
+  </div>
+  <div class="inner-game-wrap">
+    <div>
+      <ul class="lang-select" style="list-style-type: none">
+        <li class="list-group-item" *ngFor="let item of itemsList">
+          <input
+            type="radio"
+            [(ngModel)]="radioSelected"
+            name="list_name"
+            value="{{ item.value }}"
+            (change)="onItemChange(item)"
+            class="radio-custom"
+          />
+          <label *ngIf="this.langModel.lang == 'en'" class="eng-lang">{{ item.name }}</label>
+          <label *ngIf="this.langModel.lang == 'pt'" class="eng-lang">{{ item.namePor }}</label>
+        </li>
+      </ul>
+    </div>
+
+
+      <div *ngIf="radioSelectedEmail" class="login-form">
+        <!-- <div [ngClass]="validationCheck()"><span>{{this.errorCode}} </span></div> -->
+        <div class="form-group">
+          <div [ngClass]="validationCheck()"><span class="validationTxt"> {{this.errorCode}} </span></div>
+          <label>{{this.langModel.componentLang.createAcc.enterEmail[this.langModel.lang]}}</label>
+          <input placeholder="Email ID" type="email" class="form-control" [(ngModel)] = "this.email" [ngModelOptions]="{standalone: true}" />
+        </div>
+        <div class="agree-select">
+          <label class="termsCheckbox">{{this.langModel.componentLang.landingPage.ageWarning[this.langModel.lang]}}
+              <input type="checkbox" id="myCheck" (click)="checkboxClicked()">
+              <span class="checkmark"></span>
+            </label>
+        </div>
+        <button type="submit" class="submit" (click)='validateDetails(0)'>{{this.langModel.componentLang.createAcc.next[this.langModel.lang]}}</button>
+      </div>
+      
+      <div *ngIf="radioSelectedNumber" class="login-form">
+        <div class="form-group">
+          <label>{{this.langModel.componentLang.createAcc.enterNum[this.langModel.lang]}}</label>
+          <div class="phn-login">
+            <!-- <div class="slct-div">
+              <select class="form-control">
+                <option>+244</option>
+                <option>+243</option>
+                <option>+245</option>
+              </select>
+              <img src="../../assets/img/Login/Dropdown.png" />
+            </div> -->
+            <input type="number" class="form-control" [(ngModel)] = "this.phonenumber" [ngModelOptions]="{standalone: true}" />
+          </div>
+        </div>
+        <div class="agree-select">
+          <label class="termsCheckbox">{{this.langModel.componentLang.landingPage.ageWarning[this.langModel.lang]}}
+              <input type="checkbox" id="myCheck" (click)="checkboxClicked()">
+              <span class="checkmark"></span>
+            </label>
+        </div>
+        <button type="submit" class="submit" (click)='validateDetails(1)'>{{this.langModel.componentLang.createAcc.next[this.langModel.lang]}}</button>
+      </div>
+      
+    <!-- </form> -->
+  </div>
+</div>
+<app-messagepopup (isClaimed)="onClaim($event)"></app-messagepopup>
+

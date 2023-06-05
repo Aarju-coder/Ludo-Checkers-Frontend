@@ -1,0 +1,112 @@
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="../../assets/img/Login/Button_Back.png" alt="back-btn" class="back-btn"></a>
+        <h2 *ngIf="this.global.isHistory">{{this.langModel.componentLang.paymentHistory.heading[this.langModel.lang]}}</h2>
+        <h2 *ngIf="!this.global.isHistory">{{this.langModel.componentLang.refList.heading[this.langModel.lang]}}</h2>
+    </div>
+    <div *ngIf="this.global.isHistory" class="inner-game-wrap">
+        <div *ngFor="let i of this.paymentArray | paginate
+        : {
+            itemsPerPage: 3,
+            currentPage: vposPageNumber,
+            id: 'vpos'
+      
+          } ;let k=index"  class="payment-history-container">
+            <div class="transaction-id">
+                <span>{{this.langModel.componentLang.paymentHistory.transactionID[this.langModel.lang]}}</span>
+                <span class="text">{{i.transactionId}}</span>
+            </div>
+            <div class="amount-withdrawn">
+                <span>{{this.langModel.componentLang.paymentHistory.amountWithdrawn[this.langModel.lang]}}</span>
+                <span class="text">{{i.amount}} Kz</span>
+            </div>
+            <div class="date">
+                <span>{{this.langModel.componentLang.paymentHistory.date[this.langModel.lang]}}</span>
+                <span class="text">{{i.createdDate| slice: 0:10}} &nbsp; {{i.createdDate| slice: 11:16}}</span>
+            </div>
+            <div class="status">
+                <span>{{this.langModel.componentLang.refList.status[this.langModel.lang]}}</span>
+                <span *ngIf="i.status == 'rejected'" style="color: #FF0000"  class="text">{{this.langModel.componentLang.paymentHistory.rejected[this.langModel.lang]}}</span>
+                <span *ngIf="i.status == 'success'" style="color: #44D62C"  class="text">{{this.langModel.componentLang.refList.success[this.langModel.lang]}}</span>
+                <span *ngIf="i.status == 'pending'" style="color: #FF4F00"  class="text">{{this.langModel.componentLang.refList.pending[this.langModel.lang]}}</span>
+                <span *ngIf="i.status == 'accepted'" style="color: #44D62C"  class="text">{{this.langModel.componentLang.paymentHistory.accepted[this.langModel.lang]}}</span>
+                <span *ngIf="i.status == 'expired'" style="color: #FF0000"  class="text">{{this.langModel.componentLang.paymentHistory.expired[this.langModel.lang]}}</span>
+                <span *ngIf="i.status == 'deleted'" style="color: #FF0000"  class="text">{{this.langModel.componentLang.paymentHistory.deleted[this.langModel.lang]}}</span>
+            </div>
+            <!-- <div class="mode">
+                <span>{{this.langModel.componentLang.paymentHistory.mode[this.langModel.lang]}}</span>
+                <span class="text">{{i.type_payment}}</span>
+            </div> -->
+        </div>
+        <div *ngIf="this.paymentArray.length < 1">	
+            <div class="agent-wrap mt-10">	
+                <div class="inner-agent-wrap">	
+                    <p>{{this.langModel.componentLang.paymentHistory.nopayment[this.langModel.lang]}}</p>	
+                </div>	
+            </div>	
+        </div>
+        <pagination-controls
+        id="vpos"
+        (pageChange)="getVposPage($event)"
+        class="text-center my-pagination"
+      >
+      </pagination-controls>
+</div>
+        <div *ngIf="!this.global.isHistory" class="inner-game-wrap">
+        <div *ngFor="let t of this.refArray | paginate
+        : {
+            itemsPerPage: 2,
+            currentPage: wikipayPageNumber,
+            id: 'wikipay'
+      
+          };let k=index">
+            <div class="payment-history-container">
+                <div class="entityid">
+                    <span>{{this.langModel.componentLang.refList.entityid[this.langModel.lang]}}</span>
+                    <span class="text">{{t.wikipayEntityId}}</span>
+                </div>
+                <!-- <div class="refID">
+                    <span>{{this.langModel.componentLang.refList.refID[this.langModel.lang]}}</span>
+                    <span class="text">{{t.wikipayReferenceId}}</span>
+                </div> -->
+                <div class="refNum">
+                    <span>{{this.langModel.componentLang.refList.refNum[this.langModel.lang]}}</span>
+                    <span class="text">{{t.wikipayReferenceNo}}</span>
+                </div>
+                
+                <div class="amount-withdrawn">
+                    <span>{{this.langModel.componentLang.refList.amount[this.langModel.lang]}}</span>
+                    <span class="text">{{t.amount}} KZ</span>
+                </div>
+                <div class="date">
+                    <span>{{this.langModel.componentLang.paymentHistory.expDate[this.langModel.lang]}}</span>
+                    <span class="text">{{t.expiry_date| slice: 0:10}} &nbsp; {{t.expiry_date| slice: 11:16}}</span>
+                </div>
+                <div class="status">
+                    <span>{{this.langModel.componentLang.refList.status[this.langModel.lang]}}</span>
+                    <span *ngIf="t.wikipayReferenceStatus == 'pending'" style="color: #FF4F00"  class="text">{{this.langModel.componentLang.refList.pending[this.langModel.lang]}}</span>
+                    <span *ngIf="t.wikipayReferenceStatus == 'success'" style="color: #44D62C"  class="text">{{this.langModel.componentLang.refList.success[this.langModel.lang]}}</span>
+                    <span *ngIf="t.wikipayReferenceStatus == 'rejected'" style="color: #FF0000"  class="text">{{this.langModel.componentLang.paymentHistory.rejected[this.langModel.lang]}}</span>
+                    <span *ngIf="t.wikipayReferenceStatus == 'accepted'" style="color: #44D62C"  class="text">{{this.langModel.componentLang.paymentHistory.accepted[this.langModel.lang]}}</span>
+                    <span *ngIf="t.wikipayReferenceStatus == 'expired'" style="color: #FF0000"  class="text">{{this.langModel.componentLang.paymentHistory.expired[this.langModel.lang]}}</span>
+                    <span *ngIf="t.wikipayReferenceStatus == 'deleted'" style="color: #FF0000"  class="text">{{this.langModel.componentLang.paymentHistory.deleted[this.langModel.lang]}}</span>
+                </div>
+                <div *ngIf="t.wikipayReferenceStatus == 'pending'" (click)="deleteRefById(t)" class="delete-payment"><i class="fa-solid fa-trash delete-icon"></i>{{this.langModel.componentLang.refList.delRef[this.langModel.lang]}}</div>
+            </div>
+        </div>
+        <div *ngIf="this.refArray.length < 1">	
+            <div class="agent-wrap mt-10">	
+                <div class="inner-agent-wrap">	
+                    <p>{{this.langModel.componentLang.paymentHistory.norefHistory[this.langModel.lang]}}</p>	
+                </div>	
+            </div>	
+        </div>
+        <pagination-controls
+        id="wikipay"
+        (pageChange)=" getWikipayPage($event)"
+        class="text-center my-pagination"
+      >
+      </pagination-controls>
+    </div>
+</div>
+<ngx-ui-loader></ngx-ui-loader>

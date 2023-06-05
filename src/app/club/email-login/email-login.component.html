@@ -1,0 +1,22 @@
+<div class="game-wrap" >
+    <div class="login-header">
+        <a (click)="back()"><img src="./../../../assets/img/Button_back.png" alt="back-btn" class="back-btn"></a>
+        <h2> Login</h2>
+
+    </div>
+    <div class="inner-game-wrap">
+        <form class="login-form">
+            <div class="form-group">
+                <label>Enter Email</label>
+                <input type="email" class="form-control" [(ngModel)]="this.email" [ngModelOptions]="{standalone: true}" >
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" [(ngModel)] = "this.password" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="frgt-pswd"><a >Forgot Password?</a></div>
+            <button type="button" class="submit" (click)="validateDetails()">Submit</button>
+        </form>
+    </div>
+</div>
+<app-messagepopup1 (isClaimed)="onClaim($event)"></app-messagepopup1>

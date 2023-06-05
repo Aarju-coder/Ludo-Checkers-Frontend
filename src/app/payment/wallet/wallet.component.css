@@ -1,0 +1,100 @@
+.game-wrap{
+    background-image: url(../../../assets/img/Stretchable_BG.png);
+}
+.wallet-header{
+    background: url(../../../assets/img/Login/Header_Stretchable.png) 0/100% 100% no-repeat;
+    height: 20vh;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back-btn{
+    position: absolute;
+    left: 5%;
+    top: 46%;
+    transform: translateY(-50%);
+    width: 50px;
+}
+.wallet-header h2{
+    font-weight: 600;
+    font-size: 35px;
+    color: #fff;
+    margin: -10px 0 0;
+}
+.coins-content,.balance-content{
+    background-color: #021f64;
+    border: 2px solid #61a0f7;
+    margin-top: 2rem;
+}
+.coins-wallet,.balance{
+    display: flex;
+    justify-content: space-between;
+    color: #eff64e;
+    font-size: 24px;
+    padding: 12px 15px;
+    align-items: center;
+}
+.coins-wallet img,.balance img{
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+.text{
+    color: #fff;
+}
+.redeem-btn{
+    background: url(../../../assets/img/MyWallet/Button_Green.png) 0/100% 100% no-repeat;
+    width: 100%;
+    padding: 0.375rem 0.75rem 0.575rem;
+    line-height: 2;
+    font-size: 24px;
+    color: #041966;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    margin-top: 4rem;
+}
+.payment-btn{
+    background: url(../../../assets/img/MyWallet/Button_Cyan.png) 0/100% 100% no-repeat;
+    width: 100%;
+    padding: 0.375rem 0.75rem 0.575rem;
+    line-height: 2;
+    font-size: 24px;
+    color: #041966;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+.coins-wallet > div > span,
+.balance > div > span{
+    vertical-align: middle;
+}
+@media screen and (max-width: 767px){
+    .wallet-header{
+        max-height: 100px;
+    }
+    .back-btn {
+        width: 40px;
+    }
+    .wallet-header h2{
+        font-size: 20px;
+    }
+    .inner-game-wrap{
+        padding: 0 20px;
+    }
+    .coins-wallet,.balance{
+        font-size: 18px;
+        padding: 8px 10px;
+    }
+    .coins-wallet img,.balance img{
+        width: 25px;
+    }
+    .redeem-btn,.payment-btn{
+        font-size: 16px;
+        margin-top: 2rem;
+    }
+}

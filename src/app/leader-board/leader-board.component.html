@@ -1,0 +1,43 @@
+<div class="game-wrap-bg" [ngStyle]="gameCheck('bg')">
+    <div class="back-header" [ngStyle]="gameCheck('back-header')">
+        <a (click)="back()">
+            <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/Button_Back.png" alt="back-btn" class="back-btn">
+            <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/back.png" alt="back-btn" class="back-btn">
+        </a>
+        <h2>{{this.langModel.componentLang.leaderboard.heading[this.langModel.lang]}}</h2>
+    </div>
+    <div class="inner-game-wrap">
+
+        <div class="user-wrap" *ngFor="let data of this.rankerList;let k=index" [ngStyle]="gameCheck('userbg')">
+            <div >
+                <img src={{data.avtarImg}} class="user-img">
+                <div class="user-inner">
+                    <div class="user-name">{{data.userName}}</div>
+                    <div class="user-details"><span>{{this.langModel.componentLang.leaderboard.rank[this.langModel.lang]}} </span>{{k+1}} 
+                        <!-- <span>{{this.langModel.componentLang.leaderboard.wins[this.langModel.lang]}} </span>15 -->
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="../../assets/img1/leaderboard/Goldmedal.png">
+            </div>
+        </div>
+        
+    </div>
+    <!-- <div class="my-user-details">
+        <div class="my-user-details-inner">
+            <div class="user-wrap" [ngStyle]="gameCheck('userbg')">
+                <div>
+                    <img src="../../assets/img1/leaderboard/avatar-3.png" class="user-img">
+                    <div class="user-inner">
+                        <div class="user-name">{{this.global.userName}}</div>
+                        <div class="user-details"><span>Rank: </span>10 <span>Wins: </span>100</div>
+                    </div>
+                </div>
+                <div>
+                    <img src="../../assets/img1/leaderboard/Goldmedal.png">
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>

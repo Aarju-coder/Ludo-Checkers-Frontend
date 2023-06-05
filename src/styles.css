@@ -1,0 +1,309 @@
+* {
+    box-sizing: border-box;
+}
+body{
+	font-family: 'Fira Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #ccc;
+	position: fixed;
+	
+	height: 100%;
+	width: 100%;
+}
+:-webkit-full-screen {
+	background-color: yellow;
+  }
+  
+  /* IE11 */
+  :-ms-fullscreen {
+	background-color: yellow;
+  }
+  
+  /* Standard syntax */
+  :fullscreen {
+	background-color: yellow;
+  }
+  .fullscreen{
+	
+	width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    text-align: center;
+    background-color: #000000;
+    opacity: 0.6;
+	display: block;
+  }
+  .fullscreen img {
+	/* width: 10%; */
+    margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+.fullscreen p{
+	font-size: 4vh;
+    top: 40%;
+    color: white;
+    position: absolute;
+    margin: 0;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+}
+img{
+	max-width: 100%;
+	max-height: 100%;
+}
+.game-wrap{
+	max-width: initial;
+	height: 100%;
+	margin: auto;
+	position: relative;
+	background-image: url(./assets/img/Repeatable_Bg.png),url(./assets/img/Stretchable_BG.png);
+	background-size: auto,auto;
+    background-repeat: repeat,repeat-x;
+}
+.inner-game-wrap{
+	max-width: 500px;
+	height: 100%;
+	margin: auto;
+	padding: 0 20px;
+}
+
+.back-header{
+	background: url(./assets/img/Login/Header_Stretchable.png) 0/100% 100% no-repeat;
+    height: 20vh;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back-header h2{
+	font-weight: 600;
+	font-size: 31px;
+	color: #fff;
+	margin: -10px 0 0;
+}
+.back-btn{
+	position: absolute;
+    left: 5%;
+    top: 46%;
+    transform: translateY(-50%);
+    width: 50px;
+}
+.green-btn,.yellow-btn,.blue-btn{
+	border: none;
+    cursor: pointer;
+    position: relative;
+    color: #041966;
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: 600;
+    padding: 20px 20px 22px;
+    min-width: 200px;
+    line-height: inherit;
+}
+.green-btn:active,.yellow-btn:active,.blue-btn:active{
+	transform: translateY(4px);
+}
+.green-btn{
+	background: url(./assets/Button_Green.png) 0/100% 100% no-repeat;
+}
+.yellow-btn{
+	background: url(./assets/Button_Yellow.png) 0/100% 100% no-repeat;
+}
+.blue-btn{
+	background: url(./assets/Button_Blue.png) 0/100% 100% no-repeat;	
+}
+.text-center{
+	text-align: center;
+}
+.w-100{
+	width: 100%;
+}
+.mt-10{
+	margin-top: 10px;
+}
+
+
+.useMe {
+    animation: shake 1s ease-in-out infinite;
+}
+.path .gotti {
+	z-index: 10;
+	margin: auto;
+	height: auto;
+    width: 25px;
+	cursor: pointer;
+	animation: bounceInGotti 0.8s ease-in-out;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.path .gotti:nth-of-type(2) {
+	top: 50%;
+	left: 40%;
+	z-index: 9
+}
+
+.path .gotti:nth-of-type(3) {
+	top: 50%;
+	left: 60%;
+}
+
+.path .gotti:nth-of-type(4) {
+	top: 50%;
+	left: 70%;
+}
+
+.path .gotti:nth-of-type(5) {
+	top: 50%;
+	left: 80%;
+}
+
+.path .gotti:nth-of-type(6) {
+	top: 50%;
+	left: 90%;
+}
+
+.path .gotti:nth-of-type(7) {
+	top: 50%;
+	left: 100%;
+}
+
+.path .gotti:nth-of-type(8) {
+	top: 50%;
+	left: 30%;
+	z-index: 8;
+}
+
+.path .gotti:nth-of-type(9) {
+	top: 50%;
+	left: 20%;
+	z-index: 7;
+}
+
+.path .gotti:nth-of-type(10) {
+	top: 50%;
+	left: 10%;
+	z-index: 6;
+}
+
+.path .gotti:nth-of-type(11) {
+	top: 50%;
+	left: 0%;
+	z-index: 5;
+}
+.rotateBoard90 .path .gotti,
+.rotateBoard270 .path .gotti{
+    left: 50%;
+    top: 50%;
+}
+.rotateBoard90 .path .gotti:nth-of-type(2),
+.rotateBoard270 .path .gotti:nth-of-type(2) {
+    left: 50%;
+    top: 40%;
+    z-index: 9
+}
+
+.rotateBoard90 .path .gotti:nth-of-type(3),
+.rotateBoard270 .path .gotti:nth-of-type(2) {
+    left: 50%;
+    top: 60%;
+}
+
+.rotateBoard90 .path .gotti:nth-of-type(4),
+.rotateBoard270 .path .gotti:nth-of-type(4) {
+    left: 50%;
+    top: 70%;
+}
+
+.rotateBoard90 .path .gotti:nth-of-type(5),
+.rotateBoard270 .path .gotti:nth-of-type(5) {
+    left: 50%;
+    top: 80%;
+}
+
+.rotateBoard90 .path .gotti:nth-of-type(6),
+.rotateBoard270 .path .gotti:nth-of-type(6) {
+    left: 50%;
+    top: 90%;
+}
+
+.rotateBoard90 .path .gotti:nth-of-type(7),
+.rotateBoard270 .path .gotti:nth-of-type(7) {
+    left: 50%;
+    top: 100%;
+}
+
+.rotateBoard90 .path .gotti:nth-of-type(8),
+.rotateBoard270 .path .gotti:nth-of-type(8) {
+    left: 50%;
+    top: 30%;
+    z-index: 8;
+}
+
+.rotateBoard90 .path .gotti:nth-of-type(9),
+.rotateBoard270 .path .gotti:nth-of-type(9) {
+    left: 50%;
+    top: 20%;
+    z-index: 7;
+}
+
+.rotateBoard90 .path .gotti:nth-of-type(10),
+.rotateBoard270 .path .gotti:nth-of-type(10)  {
+    left: 50%;
+    top: 10%;
+    z-index: 6;
+}
+
+.rotateBoard90 .path .gotti:nth-of-type(11),
+.rotateBoard270 .path .gotti:nth-of-type(11) {
+    left: 50%;
+    top: 0%;
+    z-index: 5;
+}
+.useMe {
+	animation: shake 1s ease-in-out infinite;
+	z-index: 11 !important;
+}
+.path .gotti.useMe{
+	animation: shakeGotti 1s ease-in-out infinite !important;
+}
+.language {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+}
+a{
+	cursor: pointer;
+}
+@media screen and (max-width: 767px) {
+	.back-header{
+		max-height: 80px;
+	}
+	.back-header h2{
+		font-size: 20px;
+	}
+	.back-btn {
+	    width: 40px;
+	}
+	.green-btn,.yellow-btn,.blue-btn{
+		font-size: 18px;
+	    padding: 15px 20px 17px;
+	    min-width: 120px;
+	}
+	.path .gotti{
+		width: 15px;
+	}
+}

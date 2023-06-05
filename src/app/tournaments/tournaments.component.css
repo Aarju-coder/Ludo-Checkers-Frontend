@@ -1,0 +1,203 @@
+.game-wrap {
+    max-width: initial;
+    /* background-image: url(../../assets/img1/Repeatable_Bg.png),url(../../assets/img1/Stretchable_BG.png); */
+    background-size: auto, 100% 100%;
+    background-repeat: repeat, no-repeat;
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
+
+.inner-game-wrap {
+    max-width: 650px;
+    height: calc(100% - 120px);
+    overflow-y: auto;
+    margin: auto;
+    padding: 0 50px;
+}
+
+.back-header {
+    background: url(../../assets/img1/Header_Stretchable.png) 0/100% 100% no-repeat;
+    height: 20vh;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-header h2 {
+    color: #ffDC00;
+}
+
+.redBox {
+    background-color: #850808;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.redBox-header {
+    text-align: center;
+    padding: 10px 0;
+    background: url(../../assets/img1/panel_Header.png) 0/100% 100% no-repeat;
+    color: #9a0e0e;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+}
+
+.redBox-body {
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    padding: 0.6em 1em 0.6em;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #ffe01f;
+    border-top: 0;
+    border-radius: 0 0 10px 10px;
+}
+
+.bet-box {
+    background: url(../../assets/img1/randomPlay/textbox.png) 0/100% 100% no-repeat;
+    width: 33.33%;
+    font-weight: 500;
+    padding: 10px;
+}
+
+.bet-box>div {}
+
+.bet-box>div+div {
+    margin-top: 8px;
+}
+
+.bet-box>div>span {
+    color: #ffDC00;
+}
+
+.select-bets img,
+.bet-box>div>div>span {
+    vertical-align: middle;
+}
+
+.bet-box>div>div>img {
+    margin-right: 10px;
+}
+
+.bet-box>div>div {
+    margin: 8px 0 0;
+}
+
+.bet-box>div>div>img,
+.bet-box>div>div>span {
+    vertical-align: middle;
+}
+
+.tournament-box {
+    display: flex;
+    width: 100%;
+}
+
+.bet-box:nth-child(2) {
+    margin: 0 10px;
+}
+
+.full-red-box {
+    /* background: url(../../assets/img1/randomPlay/textbox.png) 0/100% 100% no-repeat; */
+    width: 100%;
+    font-weight: 500;
+    padding: 15px 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.full-red-box span {
+    color: #ffDC00;
+}
+
+.full-red-box table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.full-red-box td:first-child {
+    color: #ffDC00;
+}
+
+.btn-wrap {
+    display: flex;
+    margin-top: 15px;
+}
+
+.btn-wrap button:first-child {
+    margin-right: 15px;
+}
+
+.btn-wrap button {
+    margin: 0;
+}
+.noTourStyle{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    transform: translate(0%, 50%);
+}
+.back-btn {
+    position: absolute;
+    left: 5%;
+    top: 46%;
+    transform: translateY(-50%);
+    width: 50px;
+}
+
+.green-btn,
+.yellow-btn {
+    width: 100%;
+    padding: 0.375rem 0.75rem 0.98rem;
+    line-height: 2;
+    font-size: 24px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    margin-top: 2rem;
+    position: relative;
+    min-width: initial;
+}
+
+.green-btn {
+    background: url(../../assets/img1/button_green_bg.png) 0/100% 100% no-repeat;
+    color: #fff;
+}
+
+.yellow-btn {
+    background: url(../../assets/img1/Button_Yellow.png) 0/100% 100% no-repeat;
+    color: #9a0e0e;
+}
+
+@media screen and (max-width: 767px) {
+
+    .inner-game-wrap {
+        padding: 0 20px;
+    }
+
+    .redBox-body {
+        font-size: 14px;
+        padding: 1em 1em;
+    }
+
+    .back-btn {
+        width: 40px;
+    }
+
+    .redBox-header {
+        font-size: 18px;
+    }
+
+    .green-btn,
+    .yellow-btn {
+        font-size: 14px;
+        padding: 0.375rem 0.75rem 0.67rem;
+    }
+}

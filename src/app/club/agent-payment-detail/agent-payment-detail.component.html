@@ -1,0 +1,118 @@
+<app-agent-delete (agentStatus)="deactiveAgent($event)"></app-agent-delete>
+
+
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="./../../../assets/img/Button_back.png" alt="back-btn" class="back-btn"></a>
+        <h2>{{agentDetail.name}}</h2>
+        <a (click)="menu()"><img src="./../../../assets/img/menu.png" alt="menu" class="menu-hamburger"></a>
+    </div>
+    <div class="user-tabs">
+        <div [ngClass]="isAgent?'active-tabs':''"(click)="agentClicked()">Agent Details</div>
+        <div [ngClass]="isPay?'active-tabs':''" (click)="payHisClicked()">Payment History</div>
+    </div>
+    <div class="inner-game-wrap tab">
+        <div class="agent-detail-tab" [ngStyle]="{'display':this.displayAgent}">
+            <div class="agent-wrap" style="margin-top: 20px">
+                <div class="inner-agent-wrap">
+                    <div>Agent Id:</div>
+                    <div>{{agentDetail.agentId}}</div>
+                </div>
+            </div>
+            <div class="agent-wrap">
+                <div class="inner-agent-wrap">
+                    <div>Agent Name:</div>
+                    <div>{{agentDetail.name}}</div>
+                </div>
+            </div>
+            <div class="agent-wrap">
+                <div class="inner-agent-wrap">
+                    <div>Email ID:</div>
+                    <div>{{agentDetail.email}}</div>
+                </div>
+            </div>
+            <div class="agent-wrap">
+                <div class="inner-agent-wrap">
+                    <div>Phone No:</div>
+                    <div>{{agentDetail.phone}}</div>
+                </div>
+            </div>
+            <div class="agent-wrap">
+                <div class="inner-agent-wrap">
+                    <div>Address:</div>
+                    <div>{{agentDetail.address}}</div>
+                </div>
+            </div>
+            <!-- <div class="agent-wrap">
+                <div class="inner-agent-wrap">
+                    <div>Password:</div>
+                    <div>fhuei</div>
+                </div>
+            </div> -->
+        </div>
+
+        <div class="payment-history-tab" [ngStyle]="{'display':this.displayPay}">
+            <div class="agent-wrap mt-10" style="margin-top: 20px" *ngFor="let data of payHis">
+                <!-- <div class="inner-agent-wrap">
+                    <div>Agent Id:</div>
+                    <div>jacabson1434</div>
+                </div> -->
+                <div class="inner-agent-wrap">
+                    <div>Received UserID:</div>
+                    <div>{{data.recieverUserId}}</div>
+                </div>
+                <!-- <div class="inner-agent-wrap">
+                    <div>Username:</div>
+                    <div>{{data.receiverUserName}}</div>
+                </div> -->
+                <div class="inner-agent-wrap">
+                    <div>Email/Phone No:</div>
+                    <div>{{data.receiverEmail}}</div>
+                </div>
+                <div class="inner-agent-wrap">
+                    <div>Transaction Amount Coins:</div>
+                <div>{{data.transactionAmountCoins}}</div>
+                </div>
+                <!-- <div class="inner-agent-wrap">
+                    <div>Phone No:</div>
+                    <div>500</div>
+                </div> -->
+                <div class="inner-agent-wrap">
+                    <div>Date:</div>
+                    <div *ngIf="data.createdDate">{{data.createdDate.slice(0,10)}}</div>
+                </div>
+            </div>
+            <div *ngIf="this.payHis.length < 1">
+                <div class="agent-wrap mt-10">
+                    <div class="inner-agent-wrap">
+                        <p>No payment history to show!</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="agent-wrap">
+                <div class="inner-agent-wrap">
+                    <div>Agent Id:</div>
+                    <div>jacabson1434</div>
+                </div>
+                <div class="inner-agent-wrap">
+                    <div>Amount Received:</div>
+                    <div>jacabson1434</div>
+                </div>
+                <div class="inner-agent-wrap">
+                    <div>Coins Sold:</div>
+                    <div>500</div>
+                </div>
+                <div class="inner-agent-wrap">
+                    <div>Phone No:</div>
+                    <div>500</div>
+                </div>
+                <div class="inner-agent-wrap">
+                    <div>Date:</div>
+                    <div>12 Mar 2022</div>
+                </div>
+            </div> -->
+        </div>
+   </div>
+</div>
+  
+

@@ -1,0 +1,138 @@
+.game-wrap{
+    background-image: url(../../../assets/img/Stretchable_BG.png);
+}
+.redeem-header{
+    background: url(../../../assets/img/Login/Header_Stretchable.png) 0/100% 100% no-repeat;
+    height: 20vh;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back-btn{
+    position: absolute;
+    left: 5%;
+    top: 46%;
+    transform: translateY(-50%);
+    width: 50px;
+}
+.redeem-header h2{
+    font-weight: 600;
+    font-size: 35px;
+    color: #fff;
+    margin: -10px 0 0;
+}
+.balance-content{
+    background-color: #021f64;
+    border: 2px solid #61a0f7;
+    margin-top: 2rem;
+}
+.balance{
+    display: flex;
+    justify-content: space-between;
+    color: #eff64e;
+    font-size: 25px;
+    padding: 12px 15px;
+    align-items: center;
+}
+.balance img{
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+.balance > div > span{
+    vertical-align: middle;
+}
+.text{
+    color: #fff;
+}
+.withdraw-form{
+    max-width: 100%;
+    width: 500px;
+    margin: 2em auto 0;
+}
+.withdraw-form .form-group {
+    margin-bottom: 2rem;
+}
+.withdraw-form label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+}
+.withdraw-form .form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #041966;
+    border: none;
+    background: url(../../../assets/img/Login/Inputbox.png) 0/100% 100% no-repeat;
+}
+.withdraw-form .form-control:focus-visible {
+    outline: none;
+}
+.withdraw-form h3 {
+    text-align: center;
+    color: #c6f87c;
+    font-weight: bold;
+    margin-top: 4rem;
+    font-size: 28px;
+}
+.submit{
+    background: url(../../../assets/img/RedeemMoney/green_button.png) 0/100% 100% no-repeat;
+    width: 100%;
+    padding: 0.375rem 0.75rem 0.575rem;
+    line-height: 2;
+    font-size: 24px;
+    color: #041966;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    }
+@media screen and (max-width: 767px){
+    .redeem-header{
+        max-height: 100px;
+    }
+    .back-btn {
+        width: 40px;
+    }
+    .redeem-header h2{
+        font-size: 20px;
+    }
+    .inner-game-wrap{
+        padding: 0 20px;
+    }
+    .balance{
+        font-size: 18px;
+        padding: 8px 10px;
+    }
+    .withdraw-form{
+        margin-top: 0;
+    }
+    .withdraw-form label{
+        font-size: 18px;
+        margin-top: 2em;
+        margin-bottom: 1.5em;
+    }
+    .withdraw-form .form-control{
+        font-size: 18px;
+        margin: 0;
+    }
+    .withdraw-form h3{
+        font-size: 16px;
+        margin-top: 2em;
+    }
+    .submit{
+        font-size: 16px;
+    }
+    .balance img {
+        width: 25px;
+    }
+}

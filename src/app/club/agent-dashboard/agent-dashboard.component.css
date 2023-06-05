@@ -1,0 +1,68 @@
+.game-wrap{
+    background-image: url('./../../../assets/img/Stretchable_BG.png');
+}
+.inner-game-wrap {
+    height: calc(100% - 100px);
+    overflow: auto;
+    position: relative;
+}
+.clubname{
+    color: white;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    font-size: 19px;
+    font-weight: 500;
+    padding-top: 10px;
+}
+.coins-content{
+    background-color: #071b68;
+    border: 2px solid #3378d9;
+    margin-top: 1rem;
+    border-radius: 7px;
+}
+.coins{
+    display: flex;
+    justify-content: space-between;
+    color: #eff64e;
+    font-size: 24px;
+    padding: 12px 15px;
+    align-items: center;
+}
+.coins img{
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+.text{
+    color: #fff;
+}
+
+.coins > div > span{
+    vertical-align: middle;
+}
+.dashboard-btns button:first-child {
+    margin-top: 25px;
+}
+.dashboard-btns button {
+    width: 100%;
+    margin-top: 15px;
+}
+/* .dashboard-btns button.blue-btn {
+    position: absolute;
+    left: 20px;
+    margin: 0;
+    bottom: 90px;
+    width: calc(100% - 40px);
+} */
+@media screen and (max-width: 767px){
+    .inner-game-wrap {
+        height: calc(100% - 80px);
+    }
+    .coins{
+        font-size: 18px;
+        padding: 8px 10px;
+    }
+    .coins img{
+        width: 25px;
+    }
+}	

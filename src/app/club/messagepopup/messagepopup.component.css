@@ -1,0 +1,83 @@
+.bg{
+    background-color: #1d1e1f;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0.7;
+    z-index: 2;
+}
+
+.main-wrapper{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    top: 0;
+}
+.main-container{
+    width: 35%;
+  
+    vertical-align: middle;
+    margin: 0 auto;
+    background: #003e9f;
+    background-repeat: no-repeat;
+    /* font-family: 'ExoLight'; */
+    font-size: 2vw;
+    box-shadow: 0px 0px 0px #2b638f, 0px 6px 6px rgba(15, 15, 15, 0.4);
+    border-radius: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+    /* background: url(/assets/images/pngs/Popup_Main_Theme.png) #000;
+    background-size: 100% 100%;  */
+    border: 3px solid #ffe640;
+}
+
+.newHeading{
+    margin-bottom: 4%;
+    margin-top: 5%;
+    color: white;
+    font-size: 2.1vw;
+    /* font-family: 'ExoLight'; */
+    text-align: center;
+    letter-spacing: 1px;
+}
+.button-container{
+    margin-top: 7%;
+    margin-bottom: 5%;
+    text-align: center;
+}
+.btnBox{
+    display: inline-block;
+    width: 30%;
+    margin: 0 1%;
+}
+.buttonClose{
+    /* background: url("../../../assets/img/Button_Yellow_Bg.png") 0/100% 100% no-repeat; */
+    width: 100%;
+    height: 10vw;
+    text-align: center;
+    font-size: 3.8vw;
+    font-weight:bolder;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    color: #041966;
+    border: 0px solid;
+    letter-spacing: 0.3px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (max-width: 767px){
+    
+    .newHeading{
+        font-size: 18px;
+    }
+    .main-container{
+        width: 80%;
+    }
+}

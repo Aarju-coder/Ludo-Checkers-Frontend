@@ -1,0 +1,21 @@
+<div class="bg" *ngIf="isVisible"></div>
+<div class="main-wrapper" *ngIf="isVisible">
+    <div class="main-container">
+    <div class="newHeading">
+        <span class="name-txt-new ">{{popupMessage}} </span>
+    </div>
+    <div class="button-container">
+        <span *ngIf="type == 'option' " class="btnBox">
+            <button class="buttonClose" (click)="onAction('yes')">
+                {{btnText}}
+            </button>
+        </span>
+        <!-- <span class="btnBox">
+            <button class="buttonClose" (click)="close()">
+                {{closetxt}}
+            </button>
+        </span>  -->
+        
+        </div>
+        </div>
+</div>

@@ -1,0 +1,171 @@
+<!-- <div  *ngIf="!isFullScreen"  class="fullscreen" (click)="openFullscreen()">
+    <p>{{this.langModel.componentLang.searchOpp.fullscreen[this.langModel.lang]}}</p>
+    <img src="../../assets/fullscreen.png"/>
+  </div> -->
+<div class="game-wrapInviteFriends" id="PWFcreate">
+	<div class="back-header back-headerInviteFriends">
+		<a (click)="endGame1()"><img src="../../assets/Checkers_Home/back.png" alt="back-btn"
+				class="back-btnInviteFriends"></a>
+		<h2>{{this.langModel.componentLang.createRoomPage.heading[this.langModel.lang]}}</h2>
+	</div>
+	<div class="inner-game-wrapInviteFriends">
+
+		<div class="redBoxInviteFriends select-betsInviteFriends">
+			<div class="redBoxInviteFriends-header">
+				<span>{{this.langModel.componentLang.createRoomPage.bets[this.langModel.lang]}}</span>
+			</div>
+			<div class="redBoxInviteFriends-body">
+				<!-- <a>
+					<img src="../../assets/Checkers_Home/minus.png" (click)="decreaseAmount()">
+				</a> -->
+				<div class="betInviteFriends-box">
+					<div>
+						<span>{{this.langModel.componentLang.createRoomPage.entry[this.langModel.lang]}} </span>
+						<div><img src="../../assets/img1/coin.png"><span>{{this.global.checkerEntryAmt}} ({{ ((this.global.checkerEntryAmt) * this.global.moneyVal).toFixed(2)}}KZ)</span></div>
+					</div>
+					<div>
+						<span>{{this.langModel.componentLang.createRoomPage.rewards[this.langModel.lang]}} </span>
+						<div><img src="../../assets/img1/coins.png"><span>{{this.global.checkerRewardAmt}} ({{ ((this.global.checkerRewardAmt) * this.global.moneyVal).toFixed(2)}}KZ)</span></div>
+					</div>
+				</div>
+				<!-- <a>
+					<img src="../../assets/Checkers_Home/addRandom.png" (click)="increaseAmount()">
+				</a> -->
+			</div>
+		</div>
+
+		<div class="redBoxInviteFriends select-betsInviteFriends">
+			<div class="redBoxInviteFriends-header">
+				<span>{{this.langModel.componentLang.createRoomPage.roomcode[this.langModel.lang]}}</span>
+			</div>
+			<div class="redBoxInviteFriends-body">
+				<div class="betInviteFriends-box text-centerInviteFriends" style="font-weight: 700;" id="roomCode">
+					{{this.langModel.componentLang.createRoomPage.Loading[this.langModel.lang]}}</div>
+			</div>
+		</div>
+
+		<button *ngIf=" this.global.pwfcode && this.global.onMobile==true" type="submit" class="yellow-btnInviteFriends"
+			(click)="shareCode()">{{this.langModel.componentLang.createRoomPage.joinroom[this.langModel.lang]}}</button>
+		<button *ngIf="this.global.pwfcode && !isRCodeCopied && this.global.onMobile==false" type="submit" class="yellow-btnInviteFriends" [ngxClipboard] [cbContent]="this.global.pwfcode " (click)="shareCode()">
+			{{this.langModel.componentLang.createRoomPage.copyCode[this.langModel.lang]}}
+		</button>
+		<small *ngIf="this.global.pwfcode && isRCodeCopied && this.global.onMobile==false" class="small-text">{{this.langModel.componentLang.createRoomPage.copied[this.langModel.lang]}}</small>
+		<!-- <button type="submit" class="green-btnInviteFriends"><img src="../../assets/img1/whatsapp.png">Whatsapp
+			Share</button> -->
+
+	</div>
+</div>
+<!-- Searching Players -->
+<!-- <div class="fullscreen" (click)="openFullscreen()">
+	<p>{{this.langModel.componentLang.searchOpp.fullscreen[this.langModel.lang]}}</p>
+    <img src="../../assets/fullscreen.png"/>
+  </div> -->
+<div class="game-wrap-search-player" id="searchingPlayers">
+	<div class="back-header-search-player">
+		<img src="../../assets/Checkers_Home/back.png" class="checkers-exit-btn checkers-exit-btn-searchplayer"
+			(click)="endGame1()" />
+		<h2>{{this.langModel.componentLang.searchOpp.heading[this.langModel.lang]}}</h2>
+	</div>
+	<div class="inner-game-wrap-search-player">
+
+		<div *ngIf="this.global.checkersGameType != 'Tourny'" class="bet-box-search-player">
+			<div>
+				<span>{{this.langModel.componentLang.searchOpp.entry[this.langModel.lang]}} </span>
+				<div><img src="../../assets/img1/coin.png"><span>{{this.global.checkerEntryAmt}} ({{ ((this.global.checkerEntryAmt) * this.global.moneyVal).toFixed(2)}}KZ)</span></div>
+			</div>
+
+			<div>
+				<span>{{this.langModel.componentLang.searchOpp.rewards[this.langModel.lang]}} </span>
+				<div><img src="../../assets/img1/coins.png"><span>{{this.global.checkerRewardAmt}} ({{ ((this.global.checkerRewardAmt) * this.global.moneyVal).toFixed(2)}}KZ)</span></div>
+			</div>
+		</div>
+		<!-- <p class="waitingForCreaterTostart hidden"></p> -->
+		<div class="search-player-search-player">
+			<div class="avatar-box-search-player">
+				<img src="../../assets\img\profile\Avatar0.png" id="myAvatar">
+				<div>{{myName}}</div>
+			</div>
+
+			<div class="vs-img-search-player">
+				<img src="../../assets/img1/searchPlayer/vs.png">
+			</div>
+
+			<div class="opponents-search-player">
+
+				<div class="inner-opponents-search-player avatar-box-search-player oppTwo">
+					<img src="../../assets\img\profile\Avatar0.png" id="oppTwoAvatar">
+					<div id="oppTwo">{{this.langModel.componentLang.searchOpp.searching[this.langModel.lang]}}</div>
+				</div>
+
+
+			</div>
+		</div>
+
+	</div>
+</div>
+<!-- Searching Players ends-->
+<div id="gameScreen" class="checkersGamePage">
+
+	<div id="childToAppend" class="background">
+		<div class="toppanel">
+			<img src="./../../assets/Button_exit.png" class="checkers-exit-btn" (click)="endGame()" />
+
+			<div class="rewards">
+				<img src="./../../assets/Coins.png" class="coins" />
+				<span class="centered">{{(this.global.coins - this.global.checkerEntryAmt).toFixed(2)}}</span>
+			</div>
+			<img (click)="settingsClick()" src="./../../assets/Button_Settings.png" class="setting" />
+		</div>
+		<div class="innerCheckersGamePage">
+			<div>
+				<div class="stats checkersstats">
+					<!-- <img class="brand" id="brand1" src="./../../assets/Brand1.png" /> -->
+					<div style="height: 100%; text-align: center" id="avatar1">
+						<div class="playerTimer">
+							<img src="" class="player1" id="myAvatar1" />
+							<img src="" alt="gif" id="playerTimer1" class="ludoTimer">
+						</div>
+						<div class="player1name" id="otherPlayerUserName"></div>
+					</div>
+					<!-- <img class="brand" id="brand2" src="./../../assets/brand2.png" /> -->
+				</div>
+				
+				<div id="board">
+					<div class="tiles"></div>
+					<div class="pieces">
+						<div class="player1pieces"></div>
+						<!-- <h3 id="waiting">waiting in Lobby...</h3> -->
+						<!-- <button type="button" id="waiting1" (click)="shareCode()" *ngIf="this.gameType == 'PWF' && this.createOrJoin == 'create'">Share Code</button> -->
+						<div class="player2pieces"></div>
+					</div>
+				</div>
+				<img src="./../../assets/king2.png" class="king" />
+				<img src="./../../assets/king1.png" class="king" />
+
+				<div class="stats2 checkersstats">
+					<!-- <img class="brand" id="brand3" src="./../../assets/Brand3.png" /> -->
+					<div style="height: 100%; text-align: center" id="avatar2">
+						<div class="player2name" id="myUserName"></div>
+						<div class="playerTimer">
+							<img src="" class="player2" id="otherPlayerAvatar" />
+							<img src="" alt="gif" id="playerTimer2" class="ludoTimer">
+						</div>
+
+					</div>
+
+					<!-- <img class="brand" id="brand4" src="./../../assets/Brand4.png" /> -->
+				</div>
+			</div>
+
+			<carousel [arrows]="false" [autoplay]="true" [autoplayInterval]="10000" [overflowCellsLimit]="4"
+				[loop]="true" [cellsToShow]="1" [transitionDuration]="300" [height]="300" 
+				style="width: 96vmin;margin: 0 auto;" [images]="images">
+
+			</carousel>
+			<!-- <div class="carousel-overlay"></div> -->
+		</div>
+	</div>
+</div>
+<app-messagepopup (isClaimed)="onClaim($event)"></app-messagepopup>
+<app-ludo-setting-btn (soundAssign)="onSoundAssign($event)"></app-ludo-setting-btn>
+<app-ludo-winner-pop-up (isClaimed1)="onClaim1($event)"></app-ludo-winner-pop-up>

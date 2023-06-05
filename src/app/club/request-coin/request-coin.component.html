@@ -1,0 +1,27 @@
+<div *ngIf="isVisible">
+    <div class="popup-wrap">
+        <div class="popup-container">
+           <img src="../../../assets/img/popup/Button_Close.png" alt="close-btn" class="close-btn" (click)="close()">
+           <div class="popup-header">
+               Request for coins
+           </div>
+           <div class="popup-body">
+            <form class="login-form">
+                <!-- <div class="form-group">
+                    <label>User ID</label>
+                    <input type="text" class="form-control" [(ngModel)]="this.ownerID" [ngModelOptions]="{ standalone: true }">
+                </div> -->
+                <!-- <div class="form-group">
+                    <label>Amount</label>
+                    <input type="number" class="form-control">
+                </div> -->
+                <div class="form-group">
+                    <label>Coins</label>
+                    <input type="text" class="form-control blue-bg" [(ngModel)]="this.Tcoin" [ngModelOptions]="{ standalone: true }">
+                </div>
+                <div class="text-center" style="margin-top: 20px;"><button type="button" class="green-btn  " (click)="requestCoin()">Submit</button></div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>

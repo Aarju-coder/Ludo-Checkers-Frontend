@@ -1,0 +1,98 @@
+<div class="game-wrap" [ngStyle]="gameCheck('bg')">
+    <div class="user-details">
+        <div>
+            <a (click)="back()">
+                <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/Button_Back.png" alt="back-btn"
+                    class="back-btn">
+                <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/back.png" alt="back-btn"
+                    class="back-btn">
+            </a>
+        </div>
+        <div class="user-coin">
+            <div class="user-coin-box" [ngStyle]="gameCheck('user-coin')">
+                <img src="../../assets/img1/homePage/coins.png">
+                <span class="coinstxt">{{this.global.coins}} / {{ this.global.moneyAmt}} KZ</span>
+            </div>
+            <img (click)="storeClicked()" *ngIf="global.gameName =='Ludo'"
+                src="../../assets/img1/homePage/addcoins.png">
+            <img (click)="storeClicked()" *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/add.png">
+        </div>
+
+    </div>
+    <div style="height: 91%;text-align: center;">
+        <div class="inner-game-wrap">
+            <div class="menu-screen">
+                <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/Logo.png" alt="logo" class="logo">
+                <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/Logo_Checkers.png" alt="logo"
+                    class="logo">
+                <div class="menu-game">
+                    <div>
+                        <a (click)="ludoRandomPlay()" class="anchor-game" [ngStyle]="gameCheck('anchorGame')">
+                            <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/homePage/randomplay.png">
+                            <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/randomplay.png">
+                            <div>
+                                <span>{{this.langModel.componentLang.gameLandingPage.randomPlay[this.langModel.lang]}}</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a (click)="ludoPlayWFriends()" class="anchor-game" [ngStyle]="gameCheck('anchorGame')">
+                            <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/homePage/playWithFriends.png">
+                            <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/playwithfriends.png">
+                            <div><span>{{this.langModel.componentLang.gameLandingPage.pwf[this.langModel.lang]}}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="menu-game">
+                    <div>
+                        <a (click)="onTournaments(true)" class="anchor-game" [ngStyle]="gameCheck('anchorGame')">
+                            <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/homePage/tournaments.png">
+                            <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/tournament.png">
+                            <div>
+                                <span>{{this.langModel.componentLang.gameLandingPage.tournaments[this.langModel.lang]}}</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a (click)="onTournaments(false)" class="anchor-game" [ngStyle]="gameCheck('anchorGame')">
+                            <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/homePage/championship.png">
+                            <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/championship.png">
+                            <div>
+                                <span>{{this.langModel.componentLang.gameLandingPage.championship[this.langModel.lang]}}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <button (click)="checkersLudoAI()" type="submit" class="yello-btn" [ngStyle]="gameCheck('anchorGame')">
+                    <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/homePage/Practice.png">
+                    <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/practiceMode.png">
+                    {{this.langModel.componentLang.gameLandingPage.practiceMode[this.langModel.lang]}}
+                </button>
+                <div class="menu-buttons">
+                    <div>
+                        <a (click)="setting()">
+                            <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/homePage/settings.png">
+                            <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/settings.png">
+                            <span>{{this.langModel.componentLang.gameLandingPage.settings[this.langModel.lang]}}</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a (click)="leaderboard()">
+                            <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/homePage/leaderboard.png">
+                            <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/Leaderboard.png">
+                            <span>{{this.langModel.componentLang.gameLandingPage.leaderboard[this.langModel.lang]}}</span>
+                        </a>
+                    </div>
+                    <div>
+                        <a (click)="tutorial()">
+                            <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/homePage/tutorial.png">
+                            <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/tutorial.png">
+                            <span>{{this.langModel.componentLang.gameLandingPage.tutorials[this.langModel.lang]}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

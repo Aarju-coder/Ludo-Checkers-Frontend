@@ -1,0 +1,79 @@
+.game-wrap{
+    background-image: url('./../../../assets/img/Stretchable_BG.png');
+}
+.inner-game-wrap {
+    height: calc(100% - 250px);
+    overflow: auto;
+}
+.club-row, .club-details {
+    display: flex;
+    justify-content: space-between;
+    color: #041966;
+    align-items: center;
+}
+.club-row {
+    width: 100%;
+    padding: 9px 10px 13px;
+    background: url('./../../../assets/img/club/bar.png') 0/100% 100% no-repeat;
+    margin-top: 10px;
+}
+.club-name{
+    font-size: 23px;
+    font-weight: 600;			
+}
+.club-address {
+    font-size: 16px;
+    font-weight: 500;
+}
+.detail-btn {
+        width: 100px;
+    }
+    .inner-agent-wrap {
+        display: flex;
+        justify-content: space-between;
+        font-size: 22px;
+        line-height: 36px;
+    }
+    
+    .inner-agent-wrap>div:first-child {
+        color: #fff54e;
+        font-weight: 500;
+        white-space: nowrap;
+    }
+    
+    .inner-agent-wrap>div:last-child {
+        color: #ffffff;
+        font-weight: 500;
+    }
+    .agent-wrap {
+        background-color: #071b68;
+        border: 2px solid #3379d9;
+        padding: 15px;
+        border-radius: 6px;
+        color: #fff;
+    }
+@media screen and (max-width: 767px){
+    .inner-game-wrap {
+        height: calc(100% - 185px);
+    }
+    .club-details > img {
+        width: 45px;
+    }
+
+    .club-row {
+        padding: 7px 7px 10px;
+    }
+
+    .club-name {
+        font-size: 18px;
+    }
+
+    .club-address {
+        font-size: 14px;
+    }
+
+    .detail-btn {
+        width: 75px;
+    }
+    
+}

@@ -1,0 +1,83 @@
+.game-wrap{
+    background-image: url('./../../../assets/img/Stretchable_BG.png');
+}
+.tab.inner-game-wrap {
+    height: calc(100% - 171px);
+    overflow: auto;
+}
+.menu-hamburger {
+    position: absolute;
+    right: 5%;
+    top: 46%;
+    transform: translateY(-50%);
+}
+.user-tabs {
+    position: relative;
+    font-size: 21px;
+    line-height: 37px;
+    color: #5c97fd;
+    font-weight: 500;
+    background-color: #010b4c;
+    display: flex;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.user-tabs > div {
+    padding: 16px 0;
+    width: 50%;
+    cursor: pointer;
+}
+.active-tabs{
+    color: #fff;
+    border-bottom: 2px solid #5c97fd;;
+}
+.agent-wrap {
+    background-color: #071b68;
+    border: 2px solid #3379d9;
+    padding: 15px;
+    border-radius: 6px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+.inner-agent-wrap {
+    font-size: 22px;
+    line-height: 36px;
+}
+.payment-history-tab .inner-agent-wrap{
+    display: flex;
+    justify-content: space-between;
+}
+.inner-agent-wrap>div:first-child {
+    color: #fff54e;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.inner-agent-wrap>div:last-child {
+    color: #ffffff;
+    font-weight: 500;
+}
+@media screen and (max-width: 767px){
+    .tab.inner-game-wrap {
+        height: calc(100% - 135px);
+    }
+    .agent-wrap {
+        padding: 10px;
+    }
+    .user-tabs{
+        font-size: 17px;
+    }
+    .user-tabs > div {
+        padding: 8px 0;
+    }
+    .inner-agent-wrap {
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .payment-history-tab .inner-agent-wrap{
+        margin-bottom: 10px;
+        display: block;
+    }
+
+}

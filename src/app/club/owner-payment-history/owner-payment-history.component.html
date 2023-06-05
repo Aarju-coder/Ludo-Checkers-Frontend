@@ -1,0 +1,75 @@
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="./../../../assets/img/Button_back.png" alt="back-btn" class="back-btn"></a>
+        <h2>Payment History</h2>
+    </div>
+    <div class="inner-game-wrap">
+        <div class="agent-wrap mt-10" *ngFor="let data of paymentHis">
+            <div class="inner-agent-wrap">
+                <div>Reciever UserId:</div>
+                <div>{{data.recieverUserId}}</div>
+            </div>
+            <!-- <div class="inner-agent-wrap">
+                <div>Username:</div>
+                <div>{{data.receiverUserName}}</div>
+            </div> -->
+            <div class="inner-agent-wrap">
+                <div>Sender Email/Phone:</div>
+                <div>{{data.receiverEmail}}</div>
+            </div>
+            
+            <div class="inner-agent-wrap">
+                <div>Transaction Amount Coins:</div>
+                <div>{{data.transactionAmountCoins}}</div>
+            </div>
+            <!-- <div class="inner-agent-wrap">
+                <div>Coins Sold:</div>
+                <div>500</div>
+            </div>
+            <div class="inner-agent-wrap">
+                <div>Phone No:</div>
+                <div>500</div>
+            </div> -->
+            <div class="inner-agent-wrap">
+                <div>Date:</div>
+                <div *ngIf="data.createdDate">{{data.createdDate.slice(0,10)}}</div>
+            </div>
+
+            <div class="inner-agent-wrap">
+                <div>Status:</div>
+                <div *ngIf="data.createdDate">{{data.status |titlecase}}</div>
+            </div>
+        </div>
+
+        <div *ngIf="this.paymentHis.length < 1">
+            <div class="agent-wrap mt-10">
+                <div class="inner-agent-wrap">
+                    <p>No payment history to show!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="agent-wrap mt-10">
+            <div class="inner-agent-wrap">
+                <div>Agent Id:</div>
+                <div>jacabson1434</div>
+            </div>
+            <div class="inner-agent-wrap">
+                <div>Amount Received:</div>
+                <div>jacabson1434</div>
+            </div>
+            <div class="inner-agent-wrap">
+                <div>Coins Sold:</div>
+                <div>500</div>
+            </div>
+            <div class="inner-agent-wrap">
+                <div>Phone No:</div>
+                <div>500</div>
+            </div>
+            <div class="inner-agent-wrap">
+                <div>Date:</div>
+                <div>12 Mar 2022</div>
+            </div>
+    </div> -->
+</div>
+    

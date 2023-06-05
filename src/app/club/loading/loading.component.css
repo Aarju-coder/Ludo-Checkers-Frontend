@@ -1,0 +1,49 @@
+.first{
+    height: 20px;
+    width: 100%;
+    background-color : black;
+    border-radius: 20px;
+    border: 3px solid #fecc30;
+    overflow: hidden;
+}
+.second{
+    height: 20px;
+    background-image: linear-gradient(#fdee3b, #ff8f09);
+    
+}
+.loading-screen{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+.loading{
+    width: 100%;
+    margin-top: 30%;
+    max-width: 400px;
+    position: relative;
+}
+.progress{
+    background: url("./../../../assets/img/Loading/Loader_FG.png") 2% 12%/50% 63% no-repeat;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+.loading-num{
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 7%;
+}
+.logo{
+    max-height: 200px;
+    max-width: 100%;
+}
+@media screen and (max-width: 767px){
+    .loading-num{
+        font-size: 18px;
+    }
+}

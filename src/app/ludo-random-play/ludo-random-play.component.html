@@ -1,0 +1,82 @@
+<div class="game-wrap" [ngStyle]="gameCheck('bg')">
+    <div class="back-header" [ngStyle]="gameCheck('back-header')">
+        <a (click)="back()">
+            <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/Button_Back.png" alt="back-btn" class="back-btn">
+            <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/back.png" alt="back-btn" class="back-btn">
+        </a>
+        <h2>{{this.gameType}}</h2>
+    </div>
+    <div class="inner-game-wrap ludo-random-play">
+    
+        <div *ngIf="global.gameName =='Ludo'" class="redBox select-players">
+            <div class="redBox-header">
+                <span>{{this.langModel.componentLang.randomplayPage.players[this.langModel.lang]}}</span>
+            </div>
+            <div class="redBox-body">
+                <!-- <div class="two-player">
+                    <input id="radio-1" class="radio-custom" name="radio-group" type="radio" checked>
+                    <label for="radio-1" class="radio-custom-label">2 Players</label>
+                </div>
+                <div class="four-player">
+                    <input id="radio-2" class="radio-custom"name="radio-group" type="radio">
+                    <label for="radio-2" class="radio-custom-label">4 Players</label>
+                </div> -->
+                <ul class="lang-select" style="list-style-type: none">
+                    <li *ngFor="let item of itemsList">
+                      <input
+                        type="radio"
+                        [(ngModel)]="radioSelected"
+                        name="radio-group"
+                        value="{{ item.value }}"
+                        (change)="onItemChange(item)"
+                        class="radio-custom"
+                      />
+                      <label class="radio-custom-label">{{ item.name }}</label>
+                      
+                    </li>
+                  </ul>
+            </div>
+        </div>
+
+        <div *ngIf="global.gameName =='Ludo'" class="redBox select-board">
+            <div class="redBox-header">
+                <span>{{this.langModel.componentLang.randomplayPage.board[this.langModel.lang]}}</span>
+            </div>
+            <div class="redBox-body">
+                <div class="board board1"><a (click)="chooseBoard(1)"><img src="../../assets/img1/randomPlay/board1.png"></a></div>
+                <div class="board board2"><a (click)="chooseBoard(2)"><img src="../../assets/img1/randomPlay/board2.png"></a></div>
+                <div class="board board3"><a (click)="chooseBoard(3)"><img src="../../assets/img1/randomPlay/board3.png"></a></div>
+            </div>
+        </div>
+
+        <div class="redBox select-bets" [ngStyle]="gameCheck('bet')">
+            <div class="redBox-header">
+                <span>{{this.langModel.componentLang.randomplayPage.bets[this.langModel.lang]}}</span>
+            </div>
+            <div class="redBox-body">
+                <a href="javascript:void(0)">
+                    <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/randomPlay/Minus.png" (click)="decreaseAmount()">
+                    <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/minus.png" (click)="decreaseAmount()">
+                </a>
+                <div class="bet-box" [ngStyle]="gameCheck('betBox')">
+                    <div>
+                        <span>{{this.langModel.componentLang.randomplayPage.entry[this.langModel.lang]}} </span>
+                        <div><img src="../../assets/img1/coin.png"><span>{{this.entry}} ({{ ((this.entry) * this.global.moneyVal).toFixed(2)}}KZ)</span></div>
+                    </div>
+                    <div>
+                        <span>{{this.langModel.componentLang.randomplayPage.rewards[this.langModel.lang]}} </span>
+                        <div><img src="../../assets/img1/coins.png"><span>{{this.reward}} ({{ ((this.reward) * this.global.moneyVal).toFixed(2)}}KZ)</span></div>
+                    </div>
+                </div>
+                <a href="javascript:void(0)">
+                    <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/randomPlay/Add.png" (click)="increaseAmount()">
+                    <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/addRandom.png" (click)="increaseAmount()">
+                </a>
+            </div>
+        </div>
+    
+        <button type="submit" [ngStyle]="gameCheck('btn')" class="green-btn" (click)="start()">{{this.langModel.componentLang.randomplayPage.startGame[this.langModel.lang]}}</button>
+    
+    </div>
+</div>
+<app-messagepopup (isClaimed)="onClaim($event)"></app-messagepopup>

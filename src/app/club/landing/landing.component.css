@@ -1,0 +1,52 @@
+.loading-screen{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+.social-btn{
+    display: block;
+    color: #041966;
+    font-size: 24px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 4%;
+    position: relative;
+}
+.social-btn span,.social-btn .social-icon{
+    position: absolute;
+    top: 45%;
+    transform: translateY(-55%);
+}
+.social-btn .social-icon{
+    left: 4%;
+}
+.social-btn span{
+    white-space: nowrap;
+    left: 25%;
+}
+.logo{
+    max-height: 200px;
+    max-width: 100%;
+    margin-bottom: 10%;
+}
+@media screen and (max-width: 767px){
+    img.logo {
+        height: 25%;
+    }
+
+    .social-btn {
+        font-size: 100%;
+        height: 8%;
+    }
+
+    .social-btn img:first-child {
+        width: 100%;
+        height: 100%;
+    }
+
+    .social-btn .social-icon {
+        height: 65%;
+    }
+}

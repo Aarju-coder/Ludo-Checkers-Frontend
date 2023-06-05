@@ -1,0 +1,1168 @@
+<!-- <div  *ngIf="!isFullScreen"  class="fullscreen" (click)="openFullscreen()">
+    <p>{{this.langModel.componentLang.searchOpp.fullscreen[this.langModel.lang]}}</p>
+    <img src="../../assets/fullscreen.png"/>
+  </div> -->
+<div class="game-wrapInviteFriends hidden" id="PWFcreate">
+    <div class="back-header-search-player">
+        <a (click)="endGame1()"><img src="../../assets/img1/Button_Back.png" alt="back-btn"
+                class="back-btnInviteFriends" /></a>
+        <h2>{{this.langModel.componentLang.createRoomPage.heading[this.langModel.lang]}}</h2>
+    </div>
+    <div class="inner-game-wrapInviteFriends">
+        <div class="redBoxInviteFriends select-betsInviteFriends">
+            <div class="redBoxInviteFriends-header">
+                <span>{{this.langModel.componentLang.createRoomPage.bets[this.langModel.lang]}}</span>
+            </div>
+            <div class="redBoxInviteFriends-body">
+                <div class="betInviteFriends-box">
+                    <div>
+                        <span>{{this.langModel.componentLang.createRoomPage.entry[this.langModel.lang]}} </span>
+                        <div><img src="../../assets/img1/coin.png" /><span>{{this.global1.ludoEntryAmt}} ({{ ((this.global1.ludoEntryAmt) * this.global1.moneyVal).toFixed(2)}}KZ)</span></div>
+                    </div>
+                    <div>
+                        <span>{{this.langModel.componentLang.createRoomPage.rewards[this.langModel.lang]}} </span>
+                        <div><img src="../../assets/img1/coins.png" /><span>{{this.global1.ludoRewardAmt}} ({{ ((this.global1.ludoRewardAmt) * this.global1.moneyVal).toFixed(2)}}KZ)</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="redBoxInviteFriends select-betsInviteFriends">
+            <div class="redBoxInviteFriends-header">
+                <span>{{this.langModel.componentLang.createRoomPage.roomcode[this.langModel.lang]}}</span>
+            </div>
+            <div class="redBoxInviteFriends-body">
+                <div class="betInviteFriends-box text-centerInviteFriends" style="font-weight: 700" id="roomCode">{{this.langModel.componentLang.createRoomPage.Loading[this.langModel.lang]}}</div>
+            </div>
+        </div>
+
+        <button *ngIf="PWFroomId && this.global1.onMobile==true" type="submit" class="yellow-btnInviteFriends" (click)="shareCode()">
+            {{this.langModel.componentLang.createRoomPage.joinroom[this.langModel.lang]}}
+        </button>
+        <button *ngIf="PWFroomId && !isRCodeCopied && this.global1.onMobile==false" type="submit" class="yellow-btnInviteFriends" ngxClipboard [cbContent]="this.PWFroomId" (click)="shareCode()">
+            {{this.langModel.componentLang.createRoomPage.copyCode[this.langModel.lang]}}
+        </button>
+        <small *ngIf="PWFroomId && isRCodeCopied && !isRemoveCopyText && this.global1.onMobile==false" class="small-text">{{this.langModel.componentLang.createRoomPage.copied[this.langModel.lang]}}</small>
+        <!-- <button type="submit" class="green-btnInviteFriends"><img src="../../assets/img1/whatsapp.png">Whatsapp Share</button> -->
+        <button type="submit" class="startGamePWF yellow-btnInviteFriends hidden" (click)="startGamePWF()">
+            {{this.langModel.componentLang.createRoomPage.start[this.langModel.lang]}}
+        </button>
+        <p class="waitingForCreaterTostart hidden"></p>
+    </div>
+</div>
+<!-- <div class="fullscreen" (click)="openFullscreen()">
+    <p>{{this.langModel.componentLang.searchOpp.fullscreen[this.langModel.lang]}}</p>
+    <img src="../../assets/fullscreen.png"/>
+  </div> -->
+<div id="ludo-wrap" class="ludo-wrap">
+
+    <!-- Searching Players -->
+    <div class="game-wrap-search-player" id="search-player-ludo">
+        <div class="back-header-search-player">
+            <img src="../../assets/images/Ludo_Gameplay_Assets/Button_back.png"
+                class="ludo-exit-btn ludo-exit-btn-searchplayer" (click)="back(2)" />
+            <h2>{{this.langModel.componentLang.searchOpp.heading[this.langModel.lang]}}</h2>
+        </div>
+        <div class="inner-game-wrap-search-player">
+            <div *ngIf="this.global1.LudoGameType != 'Tourny'" class="bet-box-search-player">
+                <div>
+                    <span>{{this.langModel.componentLang.searchOpp.entry[this.langModel.lang]}} </span>
+                    <div><img src="../../assets/img1/coin.png" /><span>{{this.global1.ludoEntryAmt}} ({{ ((this.global1.ludoEntryAmt) * this.global1.moneyVal).toFixed(2)}}KZ)</span></div>
+                </div>
+
+                <div>
+                    <span>{{this.langModel.componentLang.searchOpp.rewards[this.langModel.lang]}} </span>
+                    <div><img src="../../assets/img1/coins.png" /><span>{{this.global1.ludoRewardAmt}} ({{ ((this.global1.ludoRewardAmt) * this.global1.moneyVal).toFixed(2)}}KZ)</span></div>
+                </div>
+            </div>
+            <p class="waitingForCreaterTostart hidden"></p>
+            <div class="search-player-search-player">
+                <div class="avatar-box-search-player">
+                    <img src="../../assets\img\profile\Avatar0.png" id="myAvatar" />
+                    <div>{{ myName }}</div>
+                </div>
+
+                <div class="vs-img-search-player">
+                    <img src="../../assets/img1/searchPlayer/vs.png" />
+                </div>
+
+                <div class="opponents-search-player">
+                    <div class="inner-opponents-search-player avatar-box-search-player oppOne">
+                        <img src="../../assets\img\profile\Avatar0.png" id="oppOneAvatar" />
+                        <div>{{ oppOne }}</div>
+                    </div>
+                    <div class="inner-opponents-search-player avatar-box-search-player oppTwo">
+                        <img src="../../assets\img\profile\Avatar0.png" id="oppTwoAvatar" />
+                        <div>{{ oppTwo }}</div>
+                    </div>
+
+                    <div class="inner-opponents-search-player avatar-box-search-player oppThree">
+                        <img src="../../assets\img\profile\Avatar0.png" id="oppThreeAvatar" />
+                        <div>{{ oppThree }}</div>
+                    </div>
+                </div>
+                <p class="waitingTour" *ngIf="this.global1.LudoGameType == 'Tourny'">
+                    {{this.langModel.componentLang.ingame.waitplayer[this.langModel.lang]}}</p>
+            </div>
+            <p class="waitPlayer" *ngIf="this.global1.LudoGameType == 'Tourny'">{{this.tourWaitPlayers}}</p>
+        </div>
+    </div>
+    <!-- Searching Players ends-->
+    <div class="toppanel1 hidden">
+        <img src="../../assets/images/Ludo_Gameplay_Assets/Button_back.png" class="ludo-exit-btn" (click)="back(1)" />
+    </div>
+
+    <div id="endGameDialogue" class="hidden">
+        <p>{{this.langModel.componentLang.ingame.over[this.langModel.lang]}}</p>
+        <p>{{this.langModel.componentLang.ingame.result[this.langModel.lang]}}</p>
+        <div></div>
+        <button id="playAgain">{{this.langModel.componentLang.ingame.playagain[this.langModel.lang]}} ?</button>
+    </div>
+    <div class="inner-ludo-wrap" id="innerGameWrap" [ngStyle]="checkwidth()">
+        <div class="toppanel hidden" id="topPanelID">
+            <img src="../../assets/images/Ludo_Gameplay_Assets/Button_back.png" class="ludo-exit-btn"
+                 id="ludo_screen_back_button" />
+    
+            <div class="rewards">
+                <img src="../../assets/images/Ludo_Gameplay_Assets/coins.png" class="coins" />
+                <span class="centered">{{(this.global1.coins - this.global1.ludoEntryAmt).toFixed(2)}}</span>
+            </div>
+    
+            <img src="../../assets/images/Ludo_Gameplay_Assets/Button_Settings.png"
+                class="setting" id="ludo_screen_setting_button" />
+        </div>
+        <div class="stats hidden" id="upperPlayer">
+            <div>
+                <div>
+                    <div class="ludoplayerTimer">
+                        <img class="player" id="player1" src="" />
+                        <img src="" alt="gif" id="playerTimer1" class="ludoTimer" />
+                    </div>
+    
+                    <div class="properties1 dice-visibility leftHandDice">
+                        <div class="roll1"  id="roll1">
+                            <img class="gif1" id="player1dice" src="" />
+                        </div>
+                    </div>
+                </div>
+                <p id="play1"></p>
+                <ul class="current-dice player1-dice" style="display:none">
+                    <li> <img src="/assets/images/dice/1.png" alt="dice"></li>
+                    <li> <img src="/assets/images/dice/2.png" alt="dice"></li>
+                </ul>
+            </div>
+            <div>
+                <div>
+                    <div class="properties2 dice-visibility rightHandDice">
+                        <div class="roll2"  id="roll2">
+                            <img class="gif2" id="player2dice" src="" />
+                        </div>
+                    </div>
+    
+                    <div class="ludoplayerTimer">
+                        <img class="player" id="player2" src="" />
+                        <img src="" alt="gif" id="playerTimer2" class="ludoTimer" />
+                    </div>
+                </div>
+                <p id="play2"></p>
+                <ul class="current-dice player2-dice" style="display:none">
+                    <li> <img src="/assets/images/dice/1.png" alt="dice"></li>
+                    <li> <img src="/assets/images/dice/2.png" alt="dice"></li>
+                </ul>
+            </div>
+        </div>
+        <div id="Canvas" class="hidden">
+            <section class="box box_red" [ngStyle]="boardColour('red')">
+                <div class="red home" [ngStyle]="boardCheck('red')">
+                    <div class="message"></div>
+                    <div class="home_red inner_space left"  id="home_red_left">
+                    </div>
+                    <div class="home_red inner_space right"  id="home_red_right">
+                    </div>
+                    <div class="home_red inner_space bottom-left"  id="home_red_bottom_left">
+                    </div>
+                    <div class="home_red inner_space bottom-right"  id="home_red_bottom_right">
+    
+                    </div>
+                </div>
+            </section>
+            <section class="path vertical">
+                <article>
+                    <div class="vertical_green" id="15" >
+                        <span>13</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_green blue-path" id="14" >
+                        <span>F</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_green" id="13" >
+                        <span>12</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="vertical_green" id="16" >
+                        <span>14</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_green blue-path" id="100" >
+                        <span>I</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_green" id="12" >
+                        <span>11</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="vertical_green" id="17" >
+                        <span>15</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_green blue-path" id="101" >
+                        <span>II</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_green" id="11" >
+                        <span>10</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="vertical_green blue-path hasStar" id="18" >
+                        <span>F</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                        <!-- <img class='star' onclick="return false" src="./images/star.png"> -->
+                    </div>
+                    <div class="vertical_green blue-path" id="102" >
+                        <span>III</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_green yellow-path hasStar" id="10" >
+                        <span>F</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                        <!-- <img class='star' onclick="return false" src="./images/star.png"> -->
+                    </div>
+                </article>
+                <article>
+                    <div class="vertical_green" id="19" >
+                        <span>1</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_green blue-path" id="103" >
+                        <span>IV</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_green" id="9" >
+                        <span>8</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="vertical_green" id="20" >
+                        <span>2</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_green blue-path" id="104" >
+                        <span>V</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_green" id="8" >
+                        <span>7</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="vertical_green" id="21" >
+                        <span>3</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_green blue-path" id="105" >
+                        <span>VI</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_green" id="7" >
+                        <span>6</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="vertical_green" id="22" >
+                        <span>4</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_green blue-path" id="106" >
+                        <span>VII</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_green" id="6" >
+                        <span>5</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <section class="box box_green" [ngStyle]="boardColour('green')">
+                <div class="green home" [ngStyle]="boardCheck('green')">
+                    <div class="message"></div>
+                    <div class="home_green inner_space left"  id="home_green_left">
+    
+                    </div>
+                    <div class="home_green inner_space right"  id="home_green_right">
+                    </div>
+                    <div class="home_green inner_space bottom-left"  id="home_green_bottom_left">
+    
+                    </div>
+                    <div class="home_green inner_space bottom-right"  id="home_green_bottom_right">
+    
+                    </div>
+                </div>
+            </section>
+            <section class="path horizontal">
+                <article>
+                    <div class="horizontal_red" id="30" >
+                        <span>12</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_red green-path" id="31" >
+                        <span>F</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_red" id="32" >
+                        <span>13</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="horizontal_red" id="29" >
+                        <span>11</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_red green-path" id="130" >
+                        <span>I</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_red" id="33" >
+                        <span>14</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="horizontal_red" id="28" >
+                        <span>10</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_red green-path" id="131" >
+                        <span>II</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_red" id="34" >
+                        <span>15</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="horizontal_red blue-path hasStar" id="27" >
+                        <span>F</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                        <!-- <img class='star' onclick="return false" src="./images/star.png"> -->
+                    </div>
+                    <div class="horizontal_red green-path" id="132" >
+                        <span>III</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_red green-path hasStar" id="35" >
+                        <span>F</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                        <!-- <img class='star' onclick="return false" src="./images/star.png"> -->
+                    </div>
+                </article>
+                <article>
+                    <div class="horizontal_red" id="26" >
+                        <span>8</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_red green-path" id="133" >
+                        <span>IV</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_red" id="36" >
+                        <span>1</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="horizontal_red" id="25" >
+                        <span>7</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_red green-path" id="134" >
+                        <span>V</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_red" id="37" >
+                        <span>2</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="horizontal_red" id="24" >
+                        <span>6</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_red green-path" id="135" >
+                        <span>VI</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_red" id="38" >
+                        <span>3</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="horizontal_red" id="23" >
+                        <span>5</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_red green-path" id="136" >
+                        <span>VII</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_red" id="39" >
+                        <span>4</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <div class="innerHome">
+                <div class="finished_green multipleGotti"></div>
+                <div class="mid">
+                    <div class="finished_red multipleGotti"></div>
+                    <div class="gameOver"></div>
+                    <div class="finished_yellow multipleGotti"></div>
+                </div>
+                <div class="finished_blue multipleGotti"></div>
+            </div>
+            <section class="path horizontal">
+                <article>
+                    <div class="horizontal_yellow" id="5" >
+                        <span>4</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_yellow yellow-path" id="116" >
+                        <span>VII</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_yellow" id="57" >
+                        <span>5</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="horizontal_yellow" id="4" >
+                        <span>3</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_yellow yellow-path" id="115" >
+                        <span>VI</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_yellow" id="58" >
+                        <span>6</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="horizontal_yellow" id="3" >
+                        <span>2</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_yellow yellow-path" id="114" >
+                        <span>V</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_yellow" id="59" >
+                        <span>7</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="horizontal_yellow" id="2" >
+                        <span>1</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_yellow yellow-path" id="113" >
+                        <span>IV</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_yellow" id="60" >
+                        <span>8</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="horizontal_yellow yellow-path hasStar" id="1" >
+                        <span>F</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                        <!-- <img class='star' onclick="return false" src="./images/star.png"> -->
+                    </div>
+                    <div class="horizontal_yellow yellow-path" id="112" >
+                        <span>III</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_yellow red-path hasStar" id="61" >
+                        <span>F</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                        <!-- <img class='star' onclick="return false" src="./images/star.png"> -->
+                    </div>
+                </article>
+                <article>
+                    <div class="horizontal_yellow" id="68" >
+                        <span>15</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_yellow yellow-path" id="111" >
+                        <span>II</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_yellow" id="62" >
+                        <span>10</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="horizontal_yellow" id="67" >
+                        <span>14</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_yellow yellow-path" id="110" >
+                        <span>I</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_yellow" id="63" >
+                        <span>11</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="horizontal_yellow" id="66" >
+                        <span>13</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_yellow yellow-path hasSta" id="65" >
+                        <span>F</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="horizontal_yellow" id="64" >
+                        <span>12</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <section class="box box_blue" [ngStyle]="boardColour('blue')">
+                <div class="blue home" [ngStyle]="boardCheck('blue')">
+                    <div class="message"></div>
+                    <div class="home_blue inner_space left"  id="home_blue_left">
+    
+                    </div>
+                    <div class="home_blue inner_space right"  id="home_blue_right">
+    
+                    </div>
+                    <div class="home_blue inner_space bottom-left"  id="home_blue_bottom_left">
+                    </div>
+                    <div class="home_blue inner_space bottom-right"  id="home_blue_bottom_right">
+                    </div>
+                </div>
+            </section>
+            <section class="path vertical">
+                <article>
+                    <div class="vertical_blue" id="40" >
+                        <span>5</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue red-path" id="126" >
+                        <span>VII</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue" id="56" >
+                        <span>4</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="vertical_blue" id="41" >
+                        <span>6</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue red-path" id="125" >
+                        <span>VI</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue" id="55" >
+                        <span>3</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="vertical_blue" id="42" >
+                        <span>7</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue red-path" id="124" >
+                        <span>V</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue" id="54" >
+                        <span>2</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="vertical_blue" id="43" >
+                        <span>8</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue red-path" id="123" >
+                        <span>IV</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue" id="53" >
+                        <span>1</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="vertical_blue green-path hasStar" id="44" >
+                        <!-- <img class='star' onclick="return false" src="./images/star.png"> -->
+                        <span>F</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue red-path" id="122" >
+                        <span>III</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue red-path hasStar" id="52" >
+                        <!-- <img class='star' onclick="return false" src="./images/star.png"> -->
+                        <span>F</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="vertical_blue" id="45" >
+                        <span>10</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue red-path" id="121" >
+                        <span>II</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue" id="51" >
+                        <span>15</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="vertical_blue" id="46" >
+                        <span>11</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue red-path" id="120" >
+                        <span>I</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue" id="50" >
+                        <span>14</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+                <article>
+                    <div class="vertical_blue" id="47" >
+                        <span>12</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue red-path" id="48" >
+                        <span>F</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                    <div class="vertical_blue" id="49" >
+                        <span>13</span>
+                        <div class="current-numbers sixPopup-visibility">
+                            <div id='firstNumber'><span id='firstNumber'></span></div>
+                            <div id='secondNumber'><span id='secondNumber'></span></div>
+                            <div id='thirdNumber'><span id='thirdNumber'></span></div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+            <section class="box box_yellow" [ngStyle]="boardColour('yellow')">
+                <div class="yellow home" [ngStyle]="boardCheck('yellow')">
+                    <div class="message"></div>
+                    <div class="home_yellow inner_space left"  id="home_yellow_left">
+                    </div>
+                    <div class="home_yellow inner_space right"  id="home_yellow_right">
+    
+                    </div>
+                    <div class="home_yellow inner_space bottom-left"  id="home_yellow_bottom_left">
+                    </div>
+                    <div class="home_yellow inner_space bottom-right"  id="home_yellow_bottom_right">
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="stats hidden" id="lowerPlayer">
+            <div>
+                <p id="play3"></p>
+                <ul class="current-dice player3-dice" style="display:none">
+                    <li> <img src="/assets/images/dice/1.png" alt="dice"></li>
+                    <li> <img src="/assets/images/dice/2.png" alt="dice"></li>
+                </ul>
+                <div>
+                    <div class="ludoplayerTimer">
+                        <img class="player" id="player3" src="" />
+                        <img src="" alt="gif" id="playerTimer3" class="ludoTimer" />
+                    </div>
+                    <div class="properties3 dice-visibility leftHandDice">
+                        <div class="roll3"  id="roll3">
+                            <img class="gif3" id="player3dice" src="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p id="play4"></p>
+                <ul class="current-dice player4-dice" style="display:none">
+                    <li> <img src="/assets/images/dice/1.png" alt="dice"></li>
+                    <li> <img src="/assets/images/dice/2.png" alt="dice"></li>
+                </ul>
+                <div>
+                    <div class="properties4 dice-visibility rightHandDice">
+                        <div class="roll4"  id="roll4">
+                            <img class="gif4" id="player4dice" src="" />
+                        </div>
+                    </div>
+                    <div class="ludoplayerTimer">
+                        <img class="player" id="player4" src="" />
+                        <img src="" alt="gif" id="playerTimer4" class="ludoTimer" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="properties hidden">
+        <!--     <div class="powerUps">
+        <h2>POWERUPS!</h2>
+    </div> -->
+        <!-- <div class="roll" (click)="DiceClicked($event)">
+        <img class='gif' src='../../assets/images/initial.png'>
+    </div> -->
+        <!-- <div class="messages">
+        <div class="emojis">
+            <img id="gif angry" src="./images/GIFS/angry.gif" alt="">
+            <img id="gif blown" src="./images/GIFS/blown.gif" alt="">
+            <img id="gif crazy" src="./images/GIFS/crazy.gif" alt="">
+            <img id="gif poo" src="./images/GIFS/poo.gif" alt="">
+            <img id="gif oh_no" src="./images/GIFS/oh_no.gif" alt="">
+
+        </div>
+        <div class="dm">
+            <textarea id="messageBox" placeholder="Type message.." name="msg" sc required></textarea> -->
+        <!-- <button type="submit" class="btn">
+                <i id="sendMessage" class="fas fa-chevron-circle-right"></i>
+            </button>
+        </div>
+    </div> -->
+    </div>
+
+    <div class="hidden_gifs hidden">
+        <img src="../../assets/images/GIFS/1.gif" alt="" />
+        <img src="../../assets/images/GIFS/2.gif" alt="" />
+        <img src="../../assets/images/GIFS/3.gif" alt="" />
+        <img src="../../assets/images/GIFS/4.gif" alt="" />
+        <img src="../../assets/images/GIFS/5.gif" alt="" />
+        <img src="../../assets/images/GIFS/6.gif" alt="" />
+    </div>
+</div>
+
+<app-messagepopup (isClaimed)="onClaim($event)"></app-messagepopup>
+<app-ludo-setting-btn (soundAssign)="onSoundAssign($event)"></app-ludo-setting-btn>
+<app-ludo-winner-pop-up (isClaimed1)="onClaim1($event)"></app-ludo-winner-pop-up>

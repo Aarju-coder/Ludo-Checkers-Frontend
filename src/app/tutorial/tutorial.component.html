@@ -1,0 +1,16 @@
+<div class="game-wrap" [ngStyle]="gameCheck('bg')">
+    <div class="back-header" [ngStyle]="gameCheck('back-header')">
+        <a (click)="back()">
+            <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/Button_Back.png" alt="back-btn" class="back-btn">
+            <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/back.png" alt="back-btn" class="back-btn">
+        </a>
+        <h2 *ngIf="this.langModel.lang == 'en'">Tutorial</h2>
+        <h2 *ngIf="this.langModel.lang == 'pt'">Tutorial</h2>
+    </div>
+    <div class="inner-game-wrap">
+        <div *ngIf="this.langModel.lang == 'en'" class="heading">HOW TO PLAY</div>
+        <div *ngIf="this.langModel.lang == 'pt'" class="heading">COMO JOGAR</div>
+        <div class="tutorialText">{{this.tutorialText}}</div>
+        
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="../../assets/img/Settings/Button_back.png" alt="back-btn" class="back-btn"></a>
+        <h2>{{this.langModel.componentLang.settingComp.title[this.langModel.lang]}}</h2>
+    </div>
+    <div class="inner-game-wrap">
+        <div class="music-sound-container">
+            <div class="music">
+                <span>{{this.langModel.componentLang.settingComp.music[this.langModel.lang]}}</span>
+                <label class="switch">
+                    <input type="checkbox"(click)='this.assignMusic()' [(ngModel)]="this.musicBtn" [ngModelOptions]="{ standalone: true }">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="sound">
+                <span>{{this.langModel.componentLang.settingComp.sound[this.langModel.lang]}}</span>
+                <label class="switch">
+                    <input type="checkbox" (click)='this.assignSound()' [(ngModel)]="this.soundBtn" [ngModelOptions]="{ standalone: true }">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <!-- <div class="notification">
+                <span>{{this.langModel.componentLang.settingComp.notification[this.langModel.lang]}}</span>
+                <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider"></span>
+                </label>
+            </div> -->
+    
+        </div>
+        <div class="language-container">
+            <div class="lang">
+                <span>{{this.langModel.componentLang.settingComp.language[this.langModel.lang]}}</span>
+                <!-- <span>Idioma</span> -->
+            </div>
+            <div class="lang-select">
+                <div class="eng-lang">
+                    <input (click)="languageClicked()" id="radio-1" class="radio-custom" name="radio-group" type="radio" >
+                    <label for="radio-1" class="radio-custom-label">{{this.langModel.componentLang.landingPage.portuguese[this.langModel.lang]}}</label>
+                </div>
+                <div class="oth-lang">
+                    <input (click)="languageClicked()" id="radio-2" class="radio-custom"name="radio-group" type="radio">
+                    <label for="radio-2" class="radio-custom-label">{{this.langModel.componentLang.landingPage.english[this.langModel.lang]}}</label>
+                </div>
+            </div>
+        </div>
+    
+        <button type="submit" class="submit" (click)="onTnc()">{{this.langModel.componentLang.settingComp.tou[this.langModel.lang]}}</button>
+    
+    </div>
+</div>

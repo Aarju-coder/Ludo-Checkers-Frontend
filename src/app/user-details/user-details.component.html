@@ -1,0 +1,71 @@
+<div class="game-wrap">
+    <div class="back-header">
+        <a *ngIf="!global.setProfile"><img src="../../assets/img/Login/Button_Back.png" alt="back-btn" class="back-btn" (click)="back()"></a>
+        <h2>{{this.langModel.componentLang.userProfile.heading[this.langModel.lang]}}</h2>
+    </div>
+    <div class="inner-game-wrap create-club-step-1" >
+        <form class="login-form create-club">
+            <div class="form-row">
+                <div class="form-col">
+                    <div class="form-group">
+                        <label>{{this.langModel.componentLang.userProfile.firstName[this.langModel.lang]}}</label>
+                        <input type="text" class="form-control" [(ngModel)]="this.firstName" [ngModelOptions]="{ standalone: true }" >
+                    </div>
+                </div>
+                <div class="form-col">
+                    <div class="form-group">
+                        <label>{{this.langModel.componentLang.userProfile.lastName[this.langModel.lang]}}</label>
+                        <input type="text" class="form-control" [(ngModel)]="this.lastName" [ngModelOptions]="{ standalone: true }" >
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{this.langModel.componentLang.userProfile.gender[this.langModel.lang]}}</label>
+                <div class="gender">
+                    <ul class="lang-select" style="list-style-type: none; margin: 0;">
+                      <li class="list-group-item" *ngFor="let item of itemsList">
+                        <input
+                          type="radio"
+                          [(ngModel)]="radioSelected"
+                          name="list_name"
+                          value="{{ item.value }}"
+                          (change)="onItemChange(item)"
+                          class="radio-custom"
+                        />
+                        <label class="eng-lang">{{ item.name }}</label>
+                        
+                      </li>
+                    </ul>
+                  </div>
+            </div>
+            <div class="form-group">
+                <label>{{this.langModel.componentLang.userProfile.dob[this.langModel.lang]}}</label>
+                <input id="datee" type="date" placeholder="Choose a Date" class="form-control" [(ngModel)]="this.dob"  [ngModelOptions]="{ standalone: true }" >
+            </div>
+            <div *ngIf="this.global.emailVerified == true" class="form-group">
+                <label>{{this.langModel.componentLang.userProfile.emailAddress[this.langModel.lang]}}</label>
+                <input readonly type="email" class="form-control non-editable" [(ngModel)]="this.email" [ngModelOptions]="{ standalone: true }" >
+            </div>
+            <div *ngIf="this.global.phoneVerified == true" class="form-group">
+                <label>{{this.langModel.componentLang.userProfile.phoneNo[this.langModel.lang]}}</label>
+                <div class="phn-login">
+                    <!-- <div class="slct-div">
+                        <select class="form-control">
+                            <option>+244</option>
+                            <option>+243</option>
+                            <option>+245</option>
+                        </select>
+                        <img src="../../assets/img/Login/Dropdown.png">
+                    </div> -->
+                    <input readonly type="number" class="form-control non-editable" [(ngModel)]="this.phoneNumber" [ngModelOptions]="{ standalone: true }" >
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{this.langModel.componentLang.userProfile.address[this.langModel.lang]}}</label>
+                <textarea class="form-control" rows="4" cols="50" [(ngModel)]="this.address" [ngModelOptions]="{ standalone: true }" ></textarea>
+            </div>
+            <button type="button" class="submit" (click)="nextClicked()">{{this.langModel.componentLang.userProfile.next[this.langModel.lang]}}</button>
+        </form>
+    </div>
+</div>
+<app-messagepopup (isClaimed)="onClaim($event)"></app-messagepopup>

@@ -1,0 +1,12 @@
+<div *ngIf="isVisible">
+    <div class="popup-wrap">
+        <div class="popup-container">
+            <a (click)="close()"><img src="./../../../assets/img/popup/Button_Close.png" alt="close-btn" class="close-btn"></a>
+            <div class="popup-body text-center delete-agent">
+                <!-- <div class="text-center"><button type="submit" class="yellow-btn  ">Delete Agent</button></div> -->
+                <div class="text-center" *ngIf="isUnblock"><button type="submit" class="yellow-btn" (click)="unblock()">Unblock Agent</button></div>
+                <div class="text-center" style="margin-top: 20px;" *ngIf="isBlock"><button type="submit" class="yellow-btn  " (click)="block()">Block Agent</button></div>
+            </div>
+        </div>
+    </div>
+</div>

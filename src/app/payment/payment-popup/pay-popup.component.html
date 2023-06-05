@@ -1,0 +1,83 @@
+<div class="popup-wrap" *ngIf="isVisible">
+    <div class="popup-container reference-payment" *ngIf="!isExpressDone && !isPhnNum">
+       <img (click)="close()" src="../../assets/popup/Button_Close.png" alt="close-btn" class="close-btn">
+       <div class="popup-header">
+           {{heading}}
+       </div>
+        <div class="popup-body" *ngIf="!isExpress">
+            <p>{{subheading}}</p>
+            <button (click)="onVpos('vpos')" class="green-btn w-100">Multicaixa Express</button>
+            <button (click)="onExpress('express')" class="blue-btn w-100">Pagamento por Referência</button>
+        </div>
+       <div class="popup-body" *ngIf="isExpress">
+           <p *ngIf="isVpos">{{vposHead}}</p>
+           <p *ngIf="!isVpos">{{expressHead}}</p>
+           <span>{{amountSelected}} KZ</span>
+           <div class="button-wrap-payment">
+               <button (click)="approveExp()" class="yellow-btn">{{yes}}</button>
+               <button (click)="denyExp()" class="blue-btn">{{no}}</button>
+           </div>
+       </div>
+    </div>
+
+    <div class="popup-container reference-payment" *ngIf="isPhnNum">
+        <img (click)="close()" src="../../assets/popup/Button_Close.png" alt="close-btn" class="close-btn">
+        <div class="popup-header">
+            
+        </div>
+         <div  class="popup-body">
+             <p>{{phnNumHeading}}</p>
+             <div class="phn-login">
+                <input type="number" class="form-control" [(ngModel)]="this.expPhoneNumber" [ngModelOptions]="{ standalone: true }" >
+            </div>
+             <button (click)="onNumber()" class="nextBtn">{{yes}}</button>
+         </div>
+     </div>
+
+    <div class="popup-container" *ngIf="isExpressDone">
+        <img (click)="close()" src="../../assets/popup/Button_Close.png" alt="close-btn" class="close-btn">
+        <div class="popup-header">
+            {{expRef}}
+        </div>
+        <div class="popup-body">
+            <span class= "refCreated" *ngIf="!isVpos">{{successRef}}</span>
+            <div class="agent-wrap mt-10">
+                <div *ngIf="!isVpos" class="inner-agent-wrap">
+                    <div>{{entityidText}}</div>
+                    <div><span>{{EntityId}}</span>
+                    <img (click)="entityCopy()"  src="../../assets/popup/copy.png" ngxClipboard [cbContent]="this.EntityId"><small *ngIf="isEntityCopied" class="small-text">{{copyText}}</small></div>
+                </div>
+                <div *ngIf="!isVpos" class="inner-agent-wrap">
+                    <div>{{refNumText}}</div>
+                    <div><span>{{refNum}}</span>
+                    <img (click)="refNCopy()"  src="../../assets/popup/copy.png" ngxClipboard [cbContent]="this.refNum"><small *ngIf="isRefNCopied" class="small-text">{{copyText}}</small></div>
+                </div>
+                <!-- <div *ngIf="isVpos" class="inner-agent-wrap">
+                    <div>{{transactionText}}</div>
+                    <div><span>{{transactionId}}</span>
+                    <img src="../../assets/popup/copy.png" ngxClipboard [cbContent]="this.refId"></div>
+                </div> -->
+                <div *ngIf="!isErr" class="inner-agent-wrap">
+                    <div>{{amountText}}</div>
+                    <div><span>{{amountNum}}</span></div>
+                </div>
+                <div *ngIf="isVpos && vposPayStatus.length>0" class="inner-agent-wrap">
+                    <div>{{payStatusHead}}</div>
+                    <div><span>{{vposPayStatus}}</span></div>
+                </div>
+                <!-- <div class="inner-agent-wrap">
+                    <div>{{refNumText}}</div>
+                    <div><span>454</span>
+                    <img src="../../assets/popup/copy.png" ngxClipboard [cbContent]="this.refNum"></div>
+                </div> -->
+               <div class= "errorHandle" *ngIf="isErr">{{errorMsg}}</div> 
+                
+            </div>
+        </div>
+        <div *ngIf="!isVpos" class="popup-footer reference">
+            <p>{{footRef}}</p>
+        </div>
+     </div>
+</div>
+
+

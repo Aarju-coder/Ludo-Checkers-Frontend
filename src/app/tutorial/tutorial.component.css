@@ -1,0 +1,77 @@
+
+.game-wrap{
+	max-width: initial;
+	/* background-image: url(../../assets/img1/Repeatable_Bg.png),url(../../assets/img1/Stretchable_BG.png); */
+	background-size: auto,100% 100%;
+	background-repeat: repeat,no-repeat;
+	height: 100%;
+	margin: auto;
+	position: relative;
+}
+.inner-game-wrap{
+	max-width: 500px;
+	height: 100%;
+	margin: auto;
+	padding: 0 50px;
+}
+
+.back-header{
+	background: url(../../assets/img1/Header_Stretchable.png) 0/100% 100% no-repeat;
+    height: 20vh;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back-header h2{
+	font-weight: 600;
+	font-size: 31px;
+	color: #ffDC00;
+	margin: -10px 0 0;
+}
+.back-btn{
+	position: absolute;
+    left: 5%;
+    top: 46%;
+    transform: translateY(-50%);
+    width: 50px;
+}
+
+.heading{
+    color: #ffDC00;
+    font-size: 24px;
+    margin-top: 2%;
+}
+.tutorialText{
+    color: white;
+    font-size: 20px;
+    margin-top: 3%;
+	letter-spacing: 0.9px;
+    font-family: sans-serif;
+	overflow-y:scroll;
+	height:75%;
+}
+
+@media screen and (max-width: 767px){
+    
+    .inner-game-wrap{
+        padding: 0 20px;
+    }
+    
+    .back-header{
+		max-height: 80px;
+	}
+	.back-header h2{
+		font-size: 20px;
+	}
+	.back-btn {
+	    width: 40px;
+	}
+	.inner-game-wrap{
+		padding: 0 25px;
+	}
+	
+}

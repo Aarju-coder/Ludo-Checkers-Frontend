@@ -1,0 +1,223 @@
+.game-wrap{
+    background-image: url(../../assets/img/Stretchable_BG.png);
+}
+.settings-header{
+    background: url(../../assets/img/Login/Header_Stretchable.png) 0/100% 100% no-repeat;
+    height: 20vh;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back-btn{
+    position: absolute;
+    left: 5%;
+    top: 46%;
+    transform: translateY(-50%);
+    width: 50px;
+}
+.settings-header h2{
+    font-weight: 600;
+    font-size: 35px;
+    color: #fff;
+    margin: -10px 0 0;
+}
+.music-sound-container{
+    background-color: #071b68;
+    border: 2px solid #3379d9;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+.music,.sound,.notification{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    font-size: 28px;
+    padding: 25px 15px 10px;
+    align-items: center;
+    font-weight: 500;
+}
+.notification{
+    padding-bottom: 25px;
+} 
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 65px;
+    height: 31px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+    transition: .4s;
+    border: 2px solid #3c55c2;
+    border-radius: 5px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 26px;
+    left: 1px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url(../../assets/img/Settings/Toggle_Off.png) 0/100% 100% no-repeat;
+}
+.switch input:checked + .slider:before {
+    transform: translate(33px, -50%);
+    background: url(../../assets/img/Settings/Toggle_on.png) 0/100% 100% no-repeat;
+}
+.language-container{
+    background-color: #071b68;
+    border: 2px solid #3379d9;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+.lang{
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 2px solid #61a0f7;
+    color: #eff64e;
+    font-size: 28px;
+    font-weight: bold;	
+}
+.lang-select{
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+    padding: 0.6em 1em 0.6em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.eng-lang,.oth-lang{
+    white-space: nowrap;
+}
+.submit{
+    background: url(../../assets/img/Settings/button_termsofUse.png) 0/100% 100% no-repeat;
+    width: 100%;
+    padding: 0.375rem 0.75rem 0.575rem;
+    line-height: 2;
+    font-size: 24px;
+    color: #041966;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    margin-top: 4rem;
+}
+.radio-custom {
+    opacity: 0;
+    position: absolute;   
+}
+
+.radio-custom, .radio-custom-label {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    cursor: pointer;
+}
+.radio-custom:focus-visible, .radio-custom-label:focus-visible,
+.eng-lang:focus-visible,.oth-lang:focus-visible,
+.eng-lang input:focus,.oth-lang input:focus{
+    outline: none;
+}
+ .radio-custom-label {
+    position: relative;
+}
+.radio-custom + .radio-custom-label:before {
+    content: '';
+    background: #fff;
+    border: 2px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+    background: url(../../assets/img/Settings/radio_off.png) 0/100% 100% no-repeat;
+    margin-top: -6px;
+    box-sizing: border-box;
+}
+.radio-custom + .radio-custom-label:before {
+    border-radius: 50%;
+}
+
+.radio-custom:checked + .radio-custom-label:before {
+    content: "";
+    font-family: 'FontAwesome';
+    background: url(../../assets/img/Settings/radio_on.png) 0/100% 100% no-repeat;
+}
+@media screen and (max-width: 767px){
+    .settings-header{
+        max-height: 100px;
+    }
+    .back-btn{
+        width: 40px;
+    }
+    .settings-header h2{
+        font-size: 20px;
+    }
+    .inner-game-wrap{
+        padding: 0 20px;
+    }
+    .lang-select {
+        font-size: 18px;
+        padding: 1em 1em;
+    }
+    .music,.sound,.notification {
+        font-size: 20px;
+        padding: 15px 10px 10px;
+    }
+    .notification{
+        padding-bottom: 15px;
+    }
+    .lang {
+        font-size: 20px;
+    }
+    .submit{
+        font-size: 16px;
+        padding: 0.375rem 0.75rem;
+        margin-top: 2rem;
+    }
+    .music-sound-container,.language-container{
+        margin-top: 1rem;
+    }
+    .switch {
+        width: 52px;
+        height: 25px;
+    }
+
+    .slider:before {
+        height: 18px;
+        width: 22px;
+    }
+    .switch input:checked + .slider:before {
+        transform: translate(24px, -50%);
+    }
+    .radio-custom + .radio-custom-label:before {
+        width: 25px;
+        height: 25px;
+        margin-top: -4px;
+        margin-right: 8px;
+    }
+}	

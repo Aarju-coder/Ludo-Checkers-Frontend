@@ -1,0 +1,115 @@
+.game-wrap{
+    background-image: url('./../../../assets/img/Stretchable_BG.png');
+}
+.inner-game-wrap {
+    height: calc(100% - 250px);
+    overflow: auto;
+}
+.loading{
+    color: white;
+    font-size:30px;
+    text-align: center;
+    transform: translate(0%, 50%);
+}
+.club-row, .club-details {
+    display: flex;
+    justify-content: space-between;
+    color: #041966;
+    align-items: center;
+}
+.club-row {
+    width: 100%;
+    padding: 9px 10px 13px;
+    background: url('./../../../assets/img/club/bar.png') 0/100% 100% no-repeat;
+    margin-top: 10px;
+}
+.club-details > img {
+    width: 66px;
+    height: 66px;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.club-address> img {
+    margin-right: 5px;
+}
+.club-name{
+    font-size: 23px;
+    font-weight: 600;			
+}
+.club-address {
+    font-size: 16px;
+    font-weight: 500;
+}
+.club-address *{
+    vertical-align: middle;
+}
+.club-details > div {
+    padding-left: 10px;
+}
+.club-row > a > img {
+    vertical-align: middle;
+}
+.club-footer {
+    background: url('./../../../assets/img/club/Footer.png') 0/100% 100% no-repeat;
+    /* position: absolute; */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 42px 0 40px;
+}
+.create-club, .access-club {
+    display: inline-block;
+    color: #041966;
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: 600;
+    margin: 0 4px;
+    padding: 20px 20px 22px;
+    min-width: 200px;
+}
+.create-club {
+    background: url("./../../../assets/img/Button_Yellow.png") 0/100% 100% no-repeat;
+}
+
+.access-club {
+    background: url("./../../../assets/img/Button_Green.png") 0/100% 100% no-repeat;
+}
+@media screen and (max-width: 767px){
+    .inner-game-wrap {
+        height: calc(100% - 185px);
+    }
+    .club-details > img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .club-row {
+        padding: 7px 7px 10px;
+    }
+
+    .club-name {
+        font-size: 18px;
+    }
+
+    .club-address {
+        font-size: 14px;
+    }
+
+    .club-row > a > img {
+        width: 45px;
+    }
+    .club-footer {
+        padding: 27px 0 25px;
+    }
+
+    .create-club, .access-club {
+        font-size: 18px;
+        padding: 15px 20px 17px;
+        min-width: 150px;
+    }
+}
+
+
+

@@ -1,0 +1,93 @@
+.game-wrap{
+    background-image: url('./../../../assets/img/Stretchable_BG.png');
+}
+.inner-game-wrap {
+    height: calc(100% - 100px);
+    overflow: auto;
+}
+.login-form{
+    max-width: 100%;
+    width: 500px;
+    margin: 2em auto;
+}
+.login-form .form-group {
+    margin-bottom: 2rem;
+}
+.login-form label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+}
+.login-form .form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #041966;
+    border: none;
+    background: url('./../../../assets/img/Inputbox.png') 0/100% 100% no-repeat;
+}
+.login-form .form-control:focus-visible {
+    outline: none;
+}
+.create-club .yellow-btn{
+    width: 100%;
+    margin-top: 1rem;
+}
+.form-row {
+    display: flex;
+    margin: 0 -10px;
+}
+
+.form-col {
+    padding: 0 10px;
+    width: 50%;
+    position: relative;
+}
+.errorUN{
+    color: red;
+}
+.phn-login {
+    display: flex;
+}
+.slct-div {
+    width: 145px;
+    margin-right: 10px;
+    cursor: pointer;
+    position: relative;
+}
+.slct-div img {
+    position: absolute;
+    top: 48%;
+    transform: translateY(-52%);
+    right: 10px;
+    width: 12px;
+}
+.phn-login select.form-control {
+    appearance: none;
+    padding-right: 30px;
+    cursor: pointer;
+    background: url('./../../../assets/img/selectInput.png') 0/100% 100% no-repeat;
+}
+select:focus-visible {
+    outline: 0px;
+}
+.login-form textarea.form-control {
+    background: url('./../../../assets/img/textarea.png') 0/100% 100% no-repeat;
+}
+
+@media screen and (max-width: 767px){
+    .inner-game-wrap {
+        height: calc(100% - 80px);
+    }
+    .login-form label,.login-form .form-control{
+        font-size: 18px;
+    }
+    .login-form .form-group{
+        margin-bottom: 1rem;
+    }
+}

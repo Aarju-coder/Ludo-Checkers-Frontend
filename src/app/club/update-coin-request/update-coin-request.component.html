@@ -1,0 +1,27 @@
+<div *ngIf="(isVisible)" class="popup-wrap">
+    <div class="popup-container">
+       <img src="./../../../assets/img/popup/Button_Close.png" alt="close-btn" class="close-btn" (click)="close()">
+       <div class="popup-header">
+          Coin Request
+       </div>
+       <div class="popup-body">
+           <div class="club-wrap">
+               
+               <div class="agents"> AgentId: <span>{{data.recieverUserId}}</span> </div>
+               <div class="agents"> Agent Username: <span>{{data.receiverUserName}}</span> </div>
+               <div class="agents"> Agent Email: <span>{{data.receiverEmail}} </span> </div>
+               <div class="agents"> Request Amount: <span>{{data.transactionAmountCoins}} Coins</span> </div>
+              
+
+               <div class="agents" *ngIf="data.createdDate"> Request Date: <span>{{data.createdDate.slice(0,10)}}</span> </div>
+           </div>
+           <!-- <div class="club-wrap address" style="margin-top: 15px">
+               <h4>ADDRESS</h4>
+               <p>{{this.address}}</p>
+           </div> -->
+           <div class="text-center" style="margin-top: 20px; display: inline-block;">
+            <button type="button" class="green-btn update-coin-btn " (click)="updateAction('accepted')">Accept</button>
+           <button type="button" class="yellow-btn  update-coin-btn" (click)="updateAction('declined')">Decline</button></div>
+       </div>
+    </div>
+</div>

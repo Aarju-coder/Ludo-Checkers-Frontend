@@ -1,0 +1,159 @@
+.redBoxInviteFriends{
+    background-color: #850808;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+.redBoxInviteFriends-header{
+    text-align: center;
+    padding: 10px 0;
+    background: url(../../assets/img1/panel_Header.png) 0/100% 100% no-repeat;
+    color: #9a0e0e;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+}
+.redBoxInviteFriends-body{
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+    padding: 0.6em 1em 0.6em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #ffe01f;
+    border-top: 0;
+    border-radius: 0 0 10px 10px;
+}
+.betInviteFriends-box {
+    background: url(../../assets/img1/randomPlay/textbox.png) 0/100% 100% no-repeat;
+    width: 100%;
+    font-weight: 500;
+    padding: 10px;
+    margin: 0 10px;
+}
+.betInviteFriends-box > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+}
+.betInviteFriends-box > div+div {
+    margin-top: 8px;
+}
+.betInviteFriends-box > div > span {
+    color: #ffDC00;
+}
+.select-bets img,
+.betInviteFriends-box > div > div > span{
+    vertical-align: middle;
+}
+.betInviteFriends-box > div > div > img{
+    margin-right: 10px;
+}
+.betInviteFriends-box > div > div {
+    min-width: 70px;
+}
+.green-btnInviteFriends img{
+    position: absolute;
+    left: 35px;
+    top: 45%;
+    transform: translateY(-55%);
+    height: 55%;
+}
+img{
+	max-width: 100%;
+	max-height: 100%;
+}
+.game-wrapInviteFriends{
+	max-width: 1200px;
+	background-image: url(./../../assets/img1/Repeatable_Bg.png),url(./../../assets/BG_1px.png);
+	background-size: auto,100% 100%;
+	background-repeat: repeat,no-repeat;
+	height: 100%;
+	margin: auto;
+	position: relative;
+}
+.inner-game-wrapInviteFriends{
+	max-width: 500px;
+	height: 100%;
+	margin: auto;
+	padding: 0 50px;
+}
+
+.back-headerInviteFriends{
+	background: url(./../../assets/Checkers_Home/header.png) 0/100% 100% no-repeat;
+    height: 20vh;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back-headerInviteFriends h2{
+	font-weight: 600;
+	font-size: 31px;
+	color: #ffDC00;
+	margin: -10px 0 0;
+}
+.back-btnInviteFriends{
+	position: absolute;
+    left: 5%;
+    top: 46%;
+    transform: translateY(-50%);
+    width: 50px;
+}
+.green-btnInviteFriends,.yellow-btnInviteFriends{
+	width: 100%;
+	padding: 0.375rem 0.75rem 0.98rem;
+	line-height: 2;
+	font-size: 24px;
+	font-weight: 700;
+	border: none;
+	cursor: pointer;
+	margin-top: 2rem;
+	position: relative;
+}
+.green-btnInviteFriends{
+	background: url(./../../assets/img1/button_green_bg.png) 0/100% 100% no-repeat;
+	color: #fff;
+}
+.yellow-btnInviteFriends{
+	background: url(./../../assets/img1/Button_Yellow.png) 0/100% 100% no-repeat;
+	color: #9a0e0e;
+}
+.text-centerInviteFriends{
+	text-align: center;
+}
+@media screen and (max-width: 767px){
+	.back-headerInviteFriends{
+		max-height: 100px;
+	}
+	.back-headerInviteFriends h2{
+		font-size: 20px;
+	}
+	.back-btnInviteFriends {
+	    width: 40px;
+	}
+	.inner-game-wrapInviteFriends{
+		padding: 0 25px;
+	}
+	.green-btnInviteFriends,.yellow-btn{
+		font-size: 16px;
+		padding: 0.375rem 0.75rem 0.67rem;
+	}
+}
+@media screen and (max-width: 767px){
+    
+    .inner-game-wrapInviteFriends{
+        padding: 0 20px;
+    }
+    .redBoxInviteFriends-body {
+        font-size: 18px;
+        padding: 1em 1em;
+    }
+    .redBoxInviteFriends-header{
+        font-size: 18px;
+    }
+}	

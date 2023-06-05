@@ -1,0 +1,50 @@
+<div class="game-wrap">
+    <div class="back-header">
+        <a ><img src="../../assets/img/Login/Button_Back.png" alt="back-btn" class="back-btn" (click)="back()"></a>
+        <h2>{{this.langModel.componentLang.bankdetails.heading[this.langModel.lang]}}</h2>
+        <span class="skip" (click)="onSkip()">{{this.langModel.componentLang.bankdetails.skip[this.langModel.lang]}}</span>
+    </div>
+    <div class="inner-game-wrap create-club-step-1" >
+        <form class="login-form create-club">
+            
+            <div class="form-group">
+                <label>{{this.langModel.componentLang.bankdetails.bankAccountNumber[this.langModel.lang]}} / IBAN</label>
+                <div class="bank-account">
+                    <input type="text" class="form-control bank-predefined-value"  readonly value="AO06." style="background: #c9c9c9;">
+                    <input pattern="[0-9]{10}" type="tel" onKeyPress="if(this.value.length==21) return false;" class="form-control" [(ngModel)]="this.accNum"  [ngModelOptions]="{ standalone: true }"  >
+                </div>
+            </div>
+            <div  class="form-group">
+                <label for="cars">{{this.langModel.componentLang.bankdetails.bankName[this.langModel.lang]}}</label>
+                <select class="form-control" name="cars" id="cars" [(ngModel)]="this.bankName" [ngModelOptions]="{ standalone: true }">
+                  <option value="Banco Angolano de Investimento - BAI">Banco Angolano de Investimento - BAI</option>
+                  <option value="Banco de Fumento de Angola - BFA">Banco de Fumento de Angola - BFA</option>
+                  <option value="Banco de Comercio Industria">Banco de Comercio Industria</option>
+                  <option value="Banco Millenium Atlantico">Banco Millenium Atlantico</option>
+                </select>
+                <!-- <label>Bank Name</label>
+                <input type="text" class="form-control" [(ngModel)]="this.bankName" [ngModelOptions]="{ standalone: true }" > -->
+            </div>
+            <div  class="form-group">
+                <label>{{this.langModel.componentLang.bankdetails.expressPhoneNo[this.langModel.lang]}}</label>
+                <div class="phn-login">
+                    <!-- <div class="slct-div">
+                        <select class="form-control">
+                            <option>+244</option>
+                            <option>+243</option>
+                            <option>+245</option>
+                        </select>
+                        <img src="../../assets/img/Login/Dropdown.png">
+                    </div> -->
+                    <input type="number" class="form-control" [(ngModel)]="this.expPhoneNumber" [ngModelOptions]="{ standalone: true }" >
+                </div>
+            </div>
+            <span style = "color: red; font-size: 2vw;">{{this.error}}</span>
+            <button type="button" class="submit" (click)="nextClicked()">{{this.langModel.componentLang.bankdetails.next[this.langModel.lang]}}</button>
+        </form>
+    </div>
+</div>
+
+
+<app-messagepopup (isClaimed)="onClaim($event)"></app-messagepopup>
+

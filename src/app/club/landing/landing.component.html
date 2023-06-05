@@ -1,0 +1,27 @@
+<div class="game-wrap">
+    <div class="inner-game-wrap">
+        <div class="loading-screen">
+            <img src="./../../../assets/img/Logo.png" alt="logo" class="logo">
+            <a  class="phn-btn social-btn" (click)="playGame()">
+                <img src="./../../../assets/img/landingScreen/Button_Phone_Login.png">
+                <img src="./../../../assets/img/landingScreen/play.png" class="social-icon">
+                <span>Play Games Online</span>
+            </a>
+            <a  *ngIf="this.gameGlobal.iOS() == false" class="acc-btn social-btn" href="./../../../assets/Mojogos.apk" download>
+                <img src="./../../../assets/img/landingScreen/Button_Create_Account.png">
+                <img src="./../../../assets/img/landingScreen/download.png" class="social-icon">
+                <span>Download Apk</span>
+            </a>
+            <a  *ngIf="this.gameGlobal.iOS() == true" class="acc-btn social-btn" href="./../../../assets/Mojogos.apk" download>
+                <img src="./../../../assets/img/landingScreen/Button_Create_Account.png">
+                <img src="./../../../assets/img/landingScreen/download.png" class="social-icon">
+                <span>Download Android Apk</span>
+            </a>
+            <a  class="email-btn social-btn" (click)="clubLanding()">
+                <img src="./../../../assets/img/landingScreen/Button_FB.png">
+                <img src="./../../../assets/img/landingScreen/club.png" class="social-icon">
+                <span>Club Management</span>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="game-wrap landing-page" >
+    <a *ngIf="this.global.onMobile == false" (click)="back()"><img src="../../assets/img/Login/Button_Back.png" alt="back-btn" class="back-btn back-NewBtn"></a>
+    <div class="inner-game-wrap">
+        <div class="loading-screen">
+            <img src="../../assets/img/Logo.png" alt="logo" class="logo">
+            <!-- <a href="#" class="faceboo-btn social-btn">
+                <img src="../../assets/img/landingScreen/Button_FB.png">
+                <img src="../../assets/img/landingScreen/Icon_FB.png" class="social-icon">
+                <span>Login with Facebook</span>
+            </a> -->
+            <a (click)="phoneLogin()" class="phn-btn social-btn">
+                <img src="../../assets/img/landingScreen/Button_Phone_Login.png">
+                <img src="../../assets/img/landingScreen/Icon_Mobile.png" class="social-icon">
+                <span>{{this.langModel.componentLang.landingPage.phno[this.langModel.lang]}}</span>
+            </a>
+            <a class="email-btn social-btn" (click)="loginPage()">
+                <img src="../../assets/img/landingScreen/Button_Email_Login.png">
+                <img src="../../assets/img/landingScreen/Icon_Mail.png" class="social-icon">
+                <span>{{this.langModel.componentLang.landingPage.email[this.langModel.lang]}}</span>
+            </a>
+            <a (click)="register()" class="acc-btn social-btn">
+                <img src="../../assets/img/landingScreen/Button_Create_Account.png">
+                <img src="../../assets/img/landingScreen/Icon_CreateAccount.png" class="social-icon">
+                <span>{{this.langModel.componentLang.landingPage.account[this.langModel.lang]}}</span>
+            </a>
+            <div class="lang-select">
+                <div class="eng-lang">
+                    <input (click)="languageClicked()" id="radio-1" class="radio-custom" name="radio-group" type="radio" >
+                    <label for="radio-1" class="radio-custom-label">{{this.langModel.componentLang.landingPage.portuguese[this.langModel.lang]}}</label>
+                </div>
+                <div class="oth-lang">
+                    <input (click)="languageClicked()" id="radio-2" class="radio-custom"name="radio-group" type="radio">
+                    <label for="radio-2" class="radio-custom-label">{{this.langModel.componentLang.landingPage.english[this.langModel.lang]}}</label>
+                </div>
+            </div>
+                
+                <p class="tnc" (click) = "onTnc()">{{this.langModel.componentLang.landingPage.tnc[this.langModel.lang]}}</p>
+            <!-- <div class="lang-select">
+                <div class="eng-lang">
+                    <img src="../../assets/img/landingScreen/Radio_Active.png">
+                    <span>English</span>
+                </div>
+                <div class="oth-lang">
+                    <img src="../../assets/img/landingScreen/Radio_Inactive.png">
+                    <span>Other</span>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+<app-messagepopup (isClaimed)="onClaim($event)"></app-messagepopup>

@@ -1,0 +1,99 @@
+.game-wrap{
+    background-image: url(../../../assets/img/Stretchable_BG.png);
+}
+.inner-game-wrap{
+    height: 88%;
+    overflow-y: auto;
+}
+.payment-history-header h2{
+    font-weight: 600;
+    font-size: 35px;
+    color: #fff;
+    margin: -10px 0 0;
+}
+.payment-history-container > div >span:first-child {
+    width: 40%;
+}
+
+.payment-history-container > div >span:nth-child(2) {
+    width: 60%;
+    padding-left: 15px;
+    word-break: break-word;
+}
+.payment-history-container{
+    background-color: #021f64;
+    border: 2px solid #61a0f7;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+.transaction-id,.amount-withdrawn,.date,.mode,.refID,.refNum,.entityid,.status{
+    display: flex;
+    justify-content: space-between;
+    color: #eff64e;
+    font-size: 16px;
+    padding: 12px 15px 0;
+}
+.status{
+    padding-bottom: 15px;
+}
+.mode{
+    padding-bottom: 15px;
+} 
+.text{
+    color: #fff;
+} 
+.inner-agent-wrap {	
+    display: flex;	
+    justify-content: space-between;	
+    font-size: 22px;	
+    line-height: 36px;	
+}	
+.inner-agent-wrap>div:first-child {	
+    color: #fff54e;	
+    font-weight: 500;	
+    white-space: nowrap;	
+}	
+.inner-agent-wrap>div:last-child {	
+    color: #ffffff;	
+    font-weight: 500;	
+}	
+.agent-wrap {	
+    background-color: #071b68;	
+    border: 2px solid #3379d9;	
+    padding: 15px;	
+    border-radius: 6px;	
+    color: #fff;	
+}	
+
+.delete-payment{
+    background-color: #002b6f;
+    padding: 15px;
+    color: #adcdff;
+    font-size: 16px;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top: 2px solid #61a0f7;
+    margin-top: 15px;
+}
+.delete-icon{
+    cursor: pointer;
+}
+.delete-payment i{
+    margin-right: 5px;
+}
+@media screen and (max-width: 767px){
+    .payment-history-header{
+        max-height: 100px;
+    }
+    .back-btn {
+        width: 40px;
+    }
+    .payment-history-header h2{
+        font-size: 20px;
+    }
+    .inner-game-wrap{
+        padding: 0 20px;
+        overflow-y: auto;
+    }
+}

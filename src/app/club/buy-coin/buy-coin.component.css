@@ -1,0 +1,61 @@
+.game-wrap{
+    background-image: url("./../../../assets/img/Stretchable_BG.png");
+}
+.coin{
+  padding: 0 10px;
+}
+.inner-game-wrap {
+    padding: 0 20px 20px;
+    height: calc(100% - 100px);
+    overflow: auto;
+    padding-bottom: 20px;
+}
+.store-container{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 24px;
+    justify-content: center;
+    margin-left: -15px;
+}
+.store-content{
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+    background-image: url("./../../../assets/img/Store/Sprite_Coins.png");
+    width: 141px;
+    height: 191px;
+    position: relative;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+.store-content.coin{
+    background-position: 0 0;
+}
+.store-content.coin-potli{
+    background-position: -604px 0;
+}
+.store-content.coin-box{
+    background-position: -755px 0;
+}
+.store-content span{
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 600;
+}
+.text{
+    color: #031aad;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 600;
+}
+@media screen and (max-width: 767px){
+     .inner-game-wrap {
+        padding: 0 20px 20px;
+        height: calc(100% - 80px);
+    }
+}

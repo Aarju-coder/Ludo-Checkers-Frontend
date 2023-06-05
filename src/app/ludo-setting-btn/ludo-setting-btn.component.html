@@ -1,0 +1,24 @@
+<div class="popup-wrap" *ngIf="isVisible">
+    <div class="settings-container" [ngStyle]="gameCheck('container')">
+       <img (click)="close()" src="../../assets/img1/Button_Close.png" alt="close-btn" class="close-btn">
+       <div class="settings-header" [ngStyle]="gameCheck('settings-header')">
+        {{heading}}
+       </div>
+       <div class="music-sound-container">
+           <div class="music">
+               <span>{{musicText}}</span>
+               <label class="switch">
+                   <input type="checkbox" (click)='this.assignMusic()' [(ngModel)]="this.musicBtn" [ngModelOptions]="{ standalone: true }">
+                   <span class="slider"></span>
+               </label>
+           </div>
+           <div class="sound">
+               <span>{{soundText}}</span>
+               <label class="switch">
+                   <input type="checkbox" (click)='this.assignSound()' [(ngModel)]="this.soundBtn" [ngModelOptions]="{ standalone: true }">
+                   <span class="slider"></span>
+               </label>
+           </div>
+       </div>
+    </div>
+</div>

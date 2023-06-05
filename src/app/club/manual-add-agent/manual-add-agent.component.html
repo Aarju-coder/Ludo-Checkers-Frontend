@@ -1,0 +1,54 @@
+
+<app-add-agent-success (isClosed)="agentPopupClosed($event)"></app-add-agent-success>
+
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="./../../../assets/img/Button_back.png" alt="back-btn" class="back-btn" ></a>
+        <h2>Add New Agent</h2>
+    </div>
+    <div class="inner-game-wrap">
+        <form class="login-form create-club">
+            <div class="form-row">
+                <div class="form-col">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="this.fName" [ngModelOptions]="{ standalone: true }">
+                    </div>
+                </div>
+                <div class="form-col">
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="this.lName" [ngModelOptions]="{ standalone: true }">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Phone Num / Email</label>
+                <input type="text" class="form-control" [(ngModel)]="this.emailOrNum" [ngModelOptions]="{ standalone: true }">
+            </div>
+            <div class="form-group">
+                <label>Set Username</label>
+                <input type="text" autocomplete ="off" value="" class="form-control" [(ngModel)]="this.username" [ngModelOptions]="{ standalone: true }" (blur)='checkUserName()'>
+                <span class="errorUN" *ngIf="this.usernameExist">* Username already exists</span>
+            </div>
+            <!-- <div class="form-group">
+                <label>Phone Number</label>
+                <div class="phn-login">
+                    
+                    <input type="number" class="form-control" [(ngModel)]="this.phone" [ngModelOptions]="{ standalone: true }">
+                </div>
+            </div> -->
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" value="" class="form-control" [(ngModel)]="this.password" [ngModelOptions]="{ standalone: true }" >
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <textarea class="form-control" rows="4" cols="50" [(ngModel)]="this.address" [ngModelOptions]="{ standalone: true }"></textarea>
+            </div>
+            <button type="button" class="yellow-btn" (click)="addAgent()">Next</button>
+        </form>
+    </div>
+    
+</div>
+<app-messagepopup1></app-messagepopup1>

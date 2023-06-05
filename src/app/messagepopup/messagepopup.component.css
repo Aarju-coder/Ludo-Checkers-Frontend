@@ -1,0 +1,100 @@
+.bg{
+    background-color: #1d1e1f;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0.7;
+    z-index: 2;
+}
+
+.popup-wrap{
+    background-color: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 50;
+}
+.popup-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 570px;
+    background-color: #0e3e9f;
+    border: 4px solid #fffc00;
+    border-radius: 25px;
+    max-width: 95%;
+    min-height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popup-body{
+    padding: 30px 20px;
+}
+.newHeading{
+    margin-bottom: 30px;
+    /* margin-top: 7%; */
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+.button-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btnBox{
+    display: inline-block;
+    width: 30%;
+    margin: 0 1%;
+}
+.button-container .yellow-btn {
+    margin: 5px;
+}
+.buttonClose{
+    background: url('../../assets/Button_yellow_Bg.png') 0/100% 100% no-repeat;
+    width: 100%;
+    height: 10vw;
+    text-align: center;
+    font-size: 3.8vw;
+    font-weight:bolder;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    color: #041966;
+    border: 0px solid;
+    letter-spacing: 0.3px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.yellow-btn{
+    background: url('../../assets/Button_yellow_Bg.png') 0/100% 100% no-repeat;
+	border: none;
+    cursor: pointer;
+    position: relative;
+    color: #041966;
+    text-decoration: none;
+    font-size: 23px;
+    font-weight: 600;
+    padding: 20px 20px 22px;
+    min-width: 200px;
+    line-height: inherit;
+}
+@media screen and (max-width: 767px){
+    
+    .newHeading{
+        font-size: 18px;
+    }
+    .button-container .yellow-btn{
+        min-width: 120px;
+        font-size: 18px;
+    }
+}

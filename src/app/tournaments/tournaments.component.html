@@ -1,0 +1,86 @@
+<div class="game-wrap" [ngStyle]="gameCheck('bg')">
+    <div class="back-header" [ngStyle]="gameCheck('back-header')">
+        <a (click)="back()">
+            <img *ngIf="global.gameName =='Ludo'" src="../../assets/img1/Button_Back.png" alt="back-btn" class="back-btn">
+            <img *ngIf="global.gameName !='Ludo'" src="../../assets/Checkers_Home/back.png" alt="back-btn" class="back-btn">
+        </a>
+        <h2>{{Heading}}</h2>
+    </div>
+    <div class="inner-game-wrap">
+    <div class="noTourStyle" *ngIf="this.global.tourDataArray.length == 0">{{this.noTourMsg}}</div>
+        <div  *ngFor="let t of this.global.tourDataArray;let k=index" class="redBox tournament-wrap" [ngStyle]="gameCheck('redbox')">
+            <div class="redBox-header" [ngStyle]="gameCheck('redBox-header')">
+                <span>{{this.global.tourDataArray[k].gameName}}</span>
+            </div>
+            <div class="redBox-body">
+
+                <div class="tournament-box">
+                    <div class="bet-box" [ngStyle]="gameCheck('betbox')">
+                        <div>
+                            <span>{{this.langModel.componentLang.tournamentPage.entry[this.langModel.lang]}} </span>
+                            <div><img src="../../assets/img1/coin.png"><span>{{this.global.tourDataArray[k].entryFee}}</span></div>
+                        </div>
+                    </div>
+                    <div class="bet-box" [ngStyle]="gameCheck('betbox')">
+                        <div>
+                            <span>{{this.langModel.componentLang.tournamentPage.rewards[this.langModel.lang]}} </span>
+                            <div><img src="../../assets/img1/coins.png"><span>{{this.global.tourDataArray[k].winningPrize}}</span></div>
+                        </div>
+                    </div>
+                    <div class="bet-box" [ngStyle]="gameCheck('betbox')">
+                        <div>
+                            <span>{{this.langModel.componentLang.tournamentPage.seats[this.langModel.lang]}} </span>
+                            <div><img src="../../assets/img1/seats.png"><span>{{this.global.tourDataArray[k].totalRegisteredPlayer}} / {{this.global.tourDataArray[k].maxPlayers}}</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="this.global.gameName == 'Ludo'" class="full-red-box" [ngStyle]="gameCheck('betbox')">
+                    <table>
+                        <tr>
+                            <td>{{this.langModel.componentLang.tournamentPage.date[this.langModel.lang]}} </td>
+                            <td>{{this.global.tourDataArray[k].startDate | slice: 0:10}} &nbsp; &nbsp; {{ this.global.tourDataArray[k].startDate | slice: 11:16 }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{this.langModel.componentLang.tourDetail.endDate[this.langModel.lang]}} </td>
+                            <td>{{this.global.tourDataArray[k].registrationClose | slice: 0:10}} &nbsp; &nbsp; {{ this.global.tourDataArray[k].registrationClose | slice: 11:16 }}</td>
+                        </tr>
+                    </table>
+                    <!-- <span>{{this.langModel.componentLang.tournamentPage.date[this.langModel.lang]}} </span> -->
+                </div>
+                <div *ngIf="this.global.gameName == 'Checkers' && !this.global.tourDataArray[k].registered && (this.global.tourDataArray[k].totalRegisteredPlayer != this.global.tourDataArray[k].maxPlayers)" class="full-red-box" [ngStyle]="gameCheck('betbox')">
+                    
+                    <table>
+                        <tr>
+                            <td>{{this.langModel.componentLang.tournamentPage.registrationOpens[this.langModel.lang]}}</td>
+                            <td>{{this.regOpenChecker[k] | slice: 0:10}} &nbsp; &nbsp; {{ this.regOpenChecker[k] | slice: 11:16 }}</td>
+                            
+                        </tr>
+                    </table>
+                    <!-- <span>{{this.langModel.componentLang.tournamentPage.date[this.langModel.lang]}} </span> -->
+                </div>
+                <div *ngIf="this.global.gameName == 'Checkers' && (this.global.tourDataArray[k].totalRegisteredPlayer != this.global.tourDataArray[k].maxPlayers)" class="full-red-box" [ngStyle]="gameCheck('betbox')">
+                    
+                    <table>
+                        <tr>
+                            <td>{{this.langModel.componentLang.tourDetail.checkerSeat[this.langModel.lang]}}</td>
+                            
+                        </tr>
+                    </table>
+                    <!-- <span>{{this.langModel.componentLang.tournamentPage.date[this.langModel.lang]}} </span> -->
+                </div>
+                <div class="btn-wrap">
+                    <button *ngIf="!this.global.tourDataArray[k].registered && this.global.tourDataArray[k].canJoin && this.global.tourDataArray[k].totalRegisteredPlayer != this.global.tourDataArray[k].maxPlayers && this.global.gameName == 'Ludo'" (click)= "onJoin(this.global.tourDataArray[k].tId, k)" type="submit" class="green-btn" [ngStyle]="gameCheck('yellowbtn')">{{this.langModel.componentLang.tourDetail.join[this.langModel.lang]}}</button>
+                    <button *ngIf="!this.global.tourDataArray[k].registered && this.global.tourDataArray[k].totalRegisteredPlayer != this.global.tourDataArray[k].maxPlayers && this.global.gameName == 'Checkers'" (click)= "onJoin(this.global.tourDataArray[k].tId, k)" type="submit" class="green-btn" [ngStyle]="gameCheck('yellowbtn')">{{this.langModel.componentLang.tourDetail.join[this.langModel.lang]}}</button>
+                    <button *ngIf="!this.global.tourDataArray[k].registered && ((this.global.tourDataArray[k].canJoin == false && this.global.gameName == 'Ludo') || this.global.tourDataArray[k].totalRegisteredPlayer >= this.global.tourDataArray[k].maxPlayers)" type="submit" class="green-btn" [ngStyle]="gameCheck('yellowbtn')">{{this.langModel.componentLang.tournamentPage.cantjoin[this.langModel.lang]}}</button>
+                    <button *ngIf="this.global.tourDataArray[k].startDate != null && !this.timeArray[k].clockStart && !gameStarted && this.global.tourDataArray[k].registered" (click)= "enterGame(this.global.tourDataArray[k].tId,this.global.tourDataArray[k].startDate, this.global.tourDataArray[k].gameName,this.global.tourDataArray[k].entryFee,this.global.tourDataArray[k].firstPrize,this.global.tourDataArray[k].secondPrize,this.global.tourDataArray[k].thirdPrize,k )" type="submit" class="green-btn" [ngStyle]="gameCheck('yellowbtn')">{{this.timeArray[k].time}}</button>
+                    <button *ngIf="this.global.tourDataArray[k].startDate != null && this.timeArray[k].clockStart && !gameStarted && this.global.tourDataArray[k].registered"  (click)= "enterGame(this.global.tourDataArray[k].tId,this.global.tourDataArray[k].startDate, this.global.tourDataArray[k].gameName,this.global.tourDataArray[k].entryFee,this.global.tourDataArray[k].firstPrize,this.global.tourDataArray[k].secondPrize,this.global.tourDataArray[k].thirdPrize,k )" type="submit"  class="green-btn" [ngStyle]="gameCheck('yellowbtn')">{{this.clockTime[k]}}</button>
+                    <button (click)="tourneyDetails(k)" type="submit" class="green-btn" [ngStyle]="gameCheck('greenbtn')">{{this.langModel.componentLang.tournamentPage.details[this.langModel.lang]}}</button>
+                    <!-- <button (click)= "enterGame(this.global.tourDataArray[k].tId,this.global.tourDataArray[k].startDate, this.global.tourDataArray[k].gameName)" type="submit"  class="green-btn" [ngStyle]="gameCheck('yellowbtn')">{{this.clockTime}}</button> -->
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+<app-messagepopup (isClaimed)="onClaim($event)"></app-messagepopup>

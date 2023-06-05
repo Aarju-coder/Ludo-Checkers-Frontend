@@ -1,0 +1,65 @@
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="./../../../assets/img/Button_back.png" alt="back-btn" class="back-btn"></a>
+        <h2>Connection Requests</h2>
+    </div>
+    <div class="inner-game-wrap">
+        <div *ngFor="let data of this.requestlist | paginate
+        : {
+            itemsPerPage: 4,
+            currentPage: pageNumber,
+            id: 'requestConnect'
+      
+          }" class="agent-wrap mt-10">
+            <div class="inner-agent-wrap">
+                <div>Phone Number:</div>
+                <div>{{data.phoneNumber}}</div>
+            </div>
+           
+            <div class="inner-agent-wrap">
+                <div>Date:</div>
+                <div *ngIf="data.createdDate">{{data.createdDate.slice(0,10)}}</div>
+            </div>
+        </div>
+
+        <pagination-controls
+        *ngIf="this.requestlist.length > 0"
+        id="requestConnect"
+        (pageChange)="getRequestPage($event)"
+        class="text-center my-pagination"
+      >
+      </pagination-controls>
+
+        <div *ngIf="this.requestlist.length < 1">
+            <div class="agent-wrap mt-10">
+                <div class="inner-agent-wrap">
+                    <p>No connection request to show!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="agent-wrap mt-10">
+            <div class="inner-agent-wrap">
+                <div>Agent Id:</div>
+                <div>jacabson1434</div>
+            </div>
+            <div class="inner-agent-wrap">
+                <div>Amount Received:</div>
+                <div>jacabson1434</div>
+            </div>
+            <div class="inner-agent-wrap">
+                <div>Coins Sold:</div>
+                <div>500</div>
+            </div>
+            <div class="inner-agent-wrap">
+                <div>Phone No:</div>
+                <div>500</div>
+            </div>
+            <div class="inner-agent-wrap">
+                <div>Date:</div>
+                <div>12 Mar 2022</div>
+            </div>
+    </div> -->
+    </div>
+</div>
+    

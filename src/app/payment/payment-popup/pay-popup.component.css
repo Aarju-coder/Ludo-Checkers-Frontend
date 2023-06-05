@@ -1,0 +1,201 @@
+.popup-wrap {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top:0;
+}
+.popup-container {
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+width: 410px;
+background-color: #0e3e9f;
+border: 4px solid #fffc00;
+border-radius: 25px;
+max-width: 95%;
+}
+.popup-header{
+background: url('../../../assets/popup/popupHeader.png') 0/100% 100% no-repeat;
+text-align: center;
+font-size: 26px;
+padding: 19px 0;
+border-top-left-radius: 22px;
+border-top-right-radius: 22px;
+font-weight: 800;
+color: #041966;
+text-transform: uppercase;
+}
+.close-btn{
+position: absolute;
+top: -20px;
+right: -20px;
+width: 50px;
+cursor: pointer;
+}
+.popup-body{
+padding: 20px;
+}
+.refCreated {
+  color: #adcdff;
+  font-weight: 500;
+}
+.small-text{
+  font-weight: 100;
+  color: #FF0000;
+  font-size: 0.9rem;
+  margin-left: 3%;
+  margin-top: 2%;
+}
+.reference-payment{
+text-align: center;
+}
+.reference-payment p{
+font-size: 18px;
+margin: 0 0 15px;
+color: #fff;
+
+}
+.reference-payment span{
+color: #fff54e;
+font-size: 22px;
+font-weight: 700;
+display: inline-block;
+margin-bottom: 20px;
+}
+.reference-payment .button-wrap-payment{
+display: flex;
+justify-content: space-between;
+}
+.reference-payment .button-wrap-payment button{
+min-width: initial;
+width: 48%;
+padding: 15px 0 17px;
+}
+
+.reference-payment .green-btn{
+margin-bottom: 20px;
+}
+.inner-agent-wrap {
+display: flex;
+justify-content: space-between;
+font-size: 22px;
+line-height: 36px;
+}
+.inner-agent-wrap>div:first-child {
+font-weight: 500;
+color: #ffffff;
+width: 46%;
+display: inline-block;
+}
+.inner-agent-wrap>div:last-child {
+color: #fff54e;
+font-weight: 500;
+width: 54%;
+padding-left: 9px;
+display: flex;
+align-items: flex-start;
+}
+.inner-agent-wrap>div:last-child img,
+.inner-agent-wrap>div:last-child span{
+vertical-align: middle;
+}
+.inner-agent-wrap>div:last-child img{
+margin-left: 5px;
+padding-top: 3px;
+}
+.popup-footer.reference{
+background-color: #002b6f;
+padding: 20px;
+color: #adcdff;
+font-size: 18px;
+text-align: center;
+border-bottom-left-radius: 22px;
+border-bottom-right-radius: 22px;
+}
+.popup-footer.reference p{
+margin: 0;
+}
+.inner-agent-wrap > div:last-child span {
+word-break: break-all;line-height: 25px;
+}
+
+.inner-agent-wrap+.inner-agent-wrap {
+  margin-top: 15px;
+}
+.form-control {
+display: block;
+width: 100%;
+padding: 0.375rem 0.75rem;
+font-size: 24px;
+font-weight: 600;
+line-height: 1.5;
+color: #041966;
+border: none;
+background: url('../../../assets/img/Login/Inputbox.png') 0/100% 100% no-repeat;
+}
+.errorHandle{
+  color: white;
+  text-align: center;
+}
+.nextBtn{
+background: url(../../../assets/Button_Yellow.png) 0/100% 100% no-repeat;
+border: none;
+  cursor: pointer;
+  position: relative;
+  color: #041966;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: 600;
+  padding: 13px 19px 15px;
+  min-width: 100px;
+  line-height: inherit;
+  margin-top: 12px;
+}
+.form-control:focus-visible {
+outline: none;
+}
+@media screen and (max-width: 767px){
+.popup-header{
+   font-size: 22px;
+   padding: 15px 0;
+}    
+.close-btn{
+    top: -10px;
+    right: -10px;
+    width: 40px;
+}
+.agent-wrap {
+    padding: 10px;
+}
+.popup-body,.popup-footer{
+    padding: 10px;
+}
+.form-control{
+  font-size: 18px;
+}
+.reference-payment p{
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+.reference-payment span{
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+.reference-payment .button-wrap-payment button{
+    font-size: 16px;
+}
+.reference-payment .green-btn{
+  margin-bottom: 10px;
+}
+.inner-agent-wrap {
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 10px;
+}
+.inner-agent-wrap>div:last-child img{
+  width: 12px;
+  margin-left: 3px;
+}
+}

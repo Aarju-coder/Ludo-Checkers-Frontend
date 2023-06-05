@@ -1,0 +1,83 @@
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="../../assets/img/Login/Button_Back.png" alt="back-btn" class="back-btn"></a>
+        <h2>{{this.langModel.componentLang.setProfile.heading[this.langModel.lang]}}</h2>
+    </div>
+    <div class="inner-game-wrap">
+        <form class="profile-form">
+            <div *ngIf="global.setProfile" class="form-group">
+                <label>{{this.langModel.componentLang.setProfile.username[this.langModel.lang]}}</label>
+                <input type="text" class="form-control" [(ngModel)]="this.userName"
+                    [ngModelOptions]="{standalone: true}">
+                    <p *ngIf="errorExist" style="color: red;"> {{this.langModel.componentLang.editProfile.error[this.langModel.lang]}}</p>
+            </div>
+            <h2 *ngIf="global.setProfile" >{{this.langModel.componentLang.setProfile.select[this.langModel.lang]}}</h2>
+            <div class="profile-photos">
+                <!-- <div class="profile-photo-container" *ngFor="let item of images;let i=index">
+                <img src='../../assets/img/profile/Avatar1.png' alt="profile-img">
+                
+            </div> -->
+                <div class="profile-photo-container" [ngClass]="chkPadding()">
+                    <div class="position-relative" (click)="updateSelectedAvatar(1)" [ngClass]="selectedAvatar == 1 ? 'selected' :'unselected' ">
+                    <img class="avtarImg" src="../../assets/img/profile/Frame2.png">
+                    <img src="../../assets/img/profile/Avatar1.png" alt="profile-img">
+                    </div>
+                </div>
+                <div class="profile-photo-container" [ngClass]="chkPadding()">
+                     <div class="position-relative" (click)="updateSelectedAvatar(2)" [ngClass]="selectedAvatar == 2 ? 'selected':'unselected' ">
+                    <img class="avtarImg" src="../../assets/img/profile/Frame2.png">
+                    <img src="../../assets/img/profile/Avatar2.png" alt="profile-img">
+                    </div>
+                </div>
+                <div class="profile-photo-container" [ngClass]="chkPadding()">
+                    <div class="position-relative" (click)="updateSelectedAvatar(3)" [ngClass]="selectedAvatar == 3 ? 'selected':'unselected' ">
+                        <img class="avtarImg" src="../../assets/img/profile/Frame2.png">
+                        <img src="../../assets/img/profile/Avatar3.png" alt="profile-img">
+                        </div>
+                </div>
+                <div class="profile-photo-container" [ngClass]="chkPadding()">
+                    <div class="position-relative" (click)="updateSelectedAvatar(4)" [ngClass]="selectedAvatar == 4 ? 'selected':'unselected' ">
+                        <img class="avtarImg" src="../../assets/img/profile/Frame2.png">
+                        <img src="../../assets/img/profile/Avatar4.png" alt="profile-img">
+                        </div>
+                </div>
+                <div class="profile-photo-container" [ngClass]="chkPadding()">
+                    <div class="position-relative" (click)="updateSelectedAvatar(5)" [ngClass]="selectedAvatar == 5 ? 'selected':'unselected' ">
+                        <img class="avtarImg" src="../../assets/img/profile/Frame2.png">
+                        <img src="../../assets/img/profile/Avatar5.png" alt="profile-img">
+                        </div>
+                </div>
+                <div class="profile-photo-container" [ngClass]="chkPadding()">
+                    <div class="position-relative" (click)="updateSelectedAvatar(6)" [ngClass]="selectedAvatar == 6 ? 'selected':'unselected' ">
+                        <img class="avtarImg" src="../../assets/img/profile/Frame2.png">
+                        <img src="../../assets/img/profile/Avatar6.png" alt="profile-img">
+                        </div>
+                </div>
+                <div class="profile-photo-container" [ngClass]="chkPadding()">
+                    <div class="position-relative" (click)="updateSelectedAvatar(7)" [ngClass]="selectedAvatar == 7 ? 'selected':'unselected' ">
+                        <img class="avtarImg" src="../../assets/img/profile/Frame2.png">
+                        <img src="../../assets/img/profile/Avatar7.png" alt="profile-img">
+                        </div>
+                </div>
+                <div class="profile-photo-container" [ngClass]="chkPadding()">
+                    <div class="position-relative" (click)="updateSelectedAvatar(8)" [ngClass]="selectedAvatar == 8 ? 'selected':'unselected' ">
+                        <img class="avtarImg" src="../../assets/img/profile/Frame2.png">
+                        <img src="../../assets/img/profile/Avatar8.png" alt="profile-img">
+                        </div>
+                </div>
+                <div class="profile-photo-container" [ngClass]="chkPadding()">
+                    <div class="position-relative" (click)="updateSelectedAvatar(9)" [ngClass]="selectedAvatar == 9 ? 'selected':'unselected' ">
+                        <img class="avtarImg" src="../../assets/img/profile/Frame2.png">
+                        <img src="../../assets/img/profile/Avatar9.png" alt="profile-img">
+                        </div>
+                </div>
+
+            </div>
+
+            <button type="submit" class="submit" (click)="onSuccess()">{{this.langModel.componentLang.setProfile.wins[this.langModel.lang]}}</button>
+        </form>
+
+    </div>
+</div>
+
+<app-messagepopup (isClaimed)="onClaim($event)"></app-messagepopup>

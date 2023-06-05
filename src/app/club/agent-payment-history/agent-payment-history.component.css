@@ -1,0 +1,52 @@
+.game-wrap{
+    background-image: url('./../../../assets/img/Stretchable_BG.png');
+}
+.inner-game-wrap {
+    height: calc(100% - 100px);
+    overflow: auto;
+    max-width: 710px;
+
+}
+.agent-wrap {
+    background-color: #071b68;
+    border: 2px solid #3379d9;
+    padding: 15px;
+    border-radius: 6px;
+    color: #fff;
+}
+.inner-agent-wrap {
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+    line-height: 30px;
+    gap: 20px;
+}
+.inner-agent-wrap+.inner-agent-wrap {
+    margin-top: 6px;
+}
+
+.inner-agent-wrap>div:first-child {
+    color: #fff54e;
+    font-weight: 500;
+    flex-basis: 270px;
+}
+
+.inner-agent-wrap>div:last-child {
+    color: #ffffff;
+    font-weight: 500;
+}
+@media screen and (max-width: 767px){
+    .inner-game-wrap {
+        height: calc(100% - 80px);
+    }
+    .agent-wrap {
+        padding: 10px;
+    }
+    .inner-agent-wrap {
+        display: block;
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 10px;
+    }
+
+}

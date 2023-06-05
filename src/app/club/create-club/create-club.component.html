@@ -1,0 +1,90 @@
+<div class="game-wrap">
+    <div class="back-header">
+        <a ><img src="./../../../assets/img/Button_back.png" alt="back-btn" class="back-btn" (click)="back()"></a>
+        <h2>Create Club</h2>
+    </div>
+    <div class="inner-game-wrap create-club-step-1"   [ngStyle]="{'display':isNext}">
+        <form class="login-form create-club">
+            <!-- <div class="form-row">
+                <div class="form-col">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="this.firstName" [ngModelOptions]="{ standalone: true }" >
+                    </div>
+                </div>
+                <div class="form-col">
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" [(ngModel)]="this.lastName" [ngModelOptions]="{ standalone: true }" >
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" [(ngModel)]="this.userName"  [ngModelOptions]="{ standalone: true }" >
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" class="form-control" [(ngModel)]="this.email" [ngModelOptions]="{ standalone: true }" >
+            </div>
+            <div class="form-group">
+                <label>Phone No</label>
+                <div class="phn-login">
+                    <div class="slct-div">
+                        <select class="form-control">
+                            <option>+244</option>
+                            <option>+243</option>
+                            <option>+245</option>
+                        </select>
+                        <img src="../../../assets/img/Login/Dropdown.png">
+                    </div>
+                    <input type="number" class="form-control" [(ngModel)]="this.phoneNumber" [ngModelOptions]="{ standalone: true }" >
+                </div>
+            </div> -->
+            <div class="form-group">
+                <label>Club Name</label>
+                <input type="text" class="form-control" [(ngModel)]="this.clubName" [ngModelOptions]="{ standalone: true }" >
+            </div>
+            <div class="form-group">
+                <label>Upload NIF</label>
+                <input type="file" accept=".doc, .docx, .pdf, .ods, xlsx" (change)="onFileSelected($event)" class="imageupload form-control " />
+                <!-- <input type="text" class="form-control" [(ngModel)]="this.NIF" [ngModelOptions]="{ standalone: true }" > -->
+            </div>
+            <p *ngIf="docUploaded" style="color: #e3cece;font-size: 18px;text-align: center;">Uploading...</p>
+            <button *ngIf="!docUploaded" type="button" class="yellow-btn" (click)="nextClicked()">Next</button>
+        </form>
+    </div>
+    <div class="inner-game-wrap create-club-step-2">
+        <form class="login-form create-club">
+            <div class="form-group">
+                <label>Address</label>
+                <textarea class="form-control" rows="4" cols="50" [(ngModel)]="this.address" maxLength="200" [ngModelOptions]="{ standalone: true }" ></textarea>
+            </div>
+            <div class="form-group">
+                <label>Add Club Photo</label>
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="club-avatar-upload">
+                            <input id="radio-1" class="radio-custom" name="radio-group" type="radio" checked>
+                            <label for="radio-1" class="radio-custom-label"></label>
+                        </div>
+                        <img src="../../../assets/img/club/defaultClubAvatar.png" class="w-100">
+                    </div>
+                    <div class="form-col">
+                        <div class="club-avatar-upload">
+                            <input id="radio-2" class="radio-custom"name="radio-group" type="radio">
+                            <label for="radio-2" class="radio-custom-label"></label>
+                        </div>	
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="customFile" accept="image/* " (change)="onFile($event)">
+                        </div>	
+                        <img [src]='this.imgUrl' class="w-100">					
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="yellow-btn" (click)="createClub()" >Submit</button>
+        </form>
+    </div>
+</div>
+
+<app-messagepopup1></app-messagepopup1>

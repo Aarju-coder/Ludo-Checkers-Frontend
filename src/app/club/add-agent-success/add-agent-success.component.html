@@ -1,0 +1,27 @@
+<div *ngIf="isVisible">
+    <div class="popup-wrap">
+        <div class="popup-container">
+            <img src="./../../../assets/img/popup/Button_Close.png" alt="close-btn" class="close-btn" (click)="close()">
+            <div class="popup-body text-center">
+                <div  class="success">
+                    <svg *ngIf="this.popupmsg == 'Agent added!!'" viewBox="0 0 26 26">
+                        <g stroke="currentColor" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                            <path class="tick" d="M6.5 13.5L10 17 l8.808621-8.308621"/>
+                        </g>
+                    </svg>
+                </div>
+                <p>{{popupmsg}}</p>
+                <!-- <div class="agent-wrap">
+                    <div class="inner-agent-wrap">
+                        <div>Agent Id:</div>
+                        <div>jacabson1434</div>
+                    </div>
+                    <div class="inner-agent-wrap">
+                        <div>Password:</div>
+                        <div>jacabson1434</div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

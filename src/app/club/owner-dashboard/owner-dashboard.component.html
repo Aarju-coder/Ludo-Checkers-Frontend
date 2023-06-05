@@ -1,0 +1,39 @@
+
+<app-recharge-account (isRecharge)="onRecharge($event)"></app-recharge-account>
+<div class="game-wrap">
+    <div class="back-header">
+        <a ><img src="./../../../assets/img/Button_back.png" alt="back-btn" class="back-btn" (click)="back()"></a>
+        <h2>Owner Dashboard</h2>
+    </div>
+    <div class="inner-game-wrap">
+        <div class="clubname">Club Name : {{this.clubName}}</div>
+        <div class="coins-content">
+            <div class="coins">
+                <div>
+                    <img src="./../../../assets/img/coins.png" alt="Coins">
+                    <span>Coins:</span>
+                </div>
+                <span class="text">{{this.global.coins}} coins / {{this.global.moneyAmt}} KZ</span>
+            </div>
+        </div>
+        
+        <div class="dashboard-btns">
+            <button class="green-btn" (click)="buyCoinClicked()">Buy Coins</button>
+            <button class="yellow-btn"(click)="viewClicked()">View Agents</button>
+            <button class="yellow-btn" (click)="addClicked()">Add New Agents</button>
+            <button class="yellow-btn"(click)="recharge()">Recharge Accounts</button>
+            <button class="yellow-btn" (click)="payHis()">Payment History</button>
+            <button class="yellow-btn" (click)="connectClub()">Connect Request</button>
+
+            <button class="yellow-btn" (click)="coinRequest()">Coin Requests<span class="red-dot" *ngIf="this.isCoinRequest" [ngStyle]="{'display':coinRequestDisplay}">
+                ({{this.numberRequest}})
+            </span></button>
+            <button class="blue-btn" (click)="logout()">Logout</button>
+        </div>
+
+
+
+    </div>
+</div>
+
+<app-messagepopup1 (isClaimed)="onClaim($event)"></app-messagepopup1>

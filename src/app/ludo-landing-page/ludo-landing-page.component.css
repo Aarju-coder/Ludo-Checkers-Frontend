@@ -1,0 +1,286 @@
+.game-wrap{
+	max-width: initial;
+	/* background-image: url(../../assets/img1/Repeatable_Bg.png),url(../../assets/img1/Stretchable_BG.png); */
+	background-size: auto,100% 100%;
+	background-repeat: repeat,no-repeat;
+	height: 100%;
+	margin: auto;
+	position: relative;
+}
+.inner-game-wrap{
+    display: inline-block;
+    max-width: initial;
+	height: 100%;
+	margin: auto;
+}
+
+.back-header{
+	background: url(../../assets/img1/Header_Stretchable.png) 0/100% 100% no-repeat;
+    height: 20vh;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back-header h2{
+	font-weight: 600;
+	font-size: 31px;
+	color: #ffDC00;
+	margin: -10px 0 0;
+}
+.back-btn{
+	position: absolute;
+    left: 5%;
+    top: 46%;
+    transform: translateY(-50%);
+    width: 50px;
+}
+.green-btn,.yellow-btn{
+	width: 100%;
+	padding: 0.375rem 0.75rem 0.98rem;
+	line-height: 2;
+	font-size: 24px;
+	font-weight: 700;
+	border: none;
+	cursor: pointer;
+	margin-top: 2rem;
+	position: relative;
+}
+.green-btn{
+	background: url(../../assets/img1/button_green_bg.png) 0/100% 100% no-repeat;
+	color: #fff;
+}
+.yellow-btn{
+	background: url(../../assets/img1/Button_Yellow.png) 0/100% 100% no-repeat;
+	color: #9a0e0e;
+}
+.text-center{
+	text-align: center;
+}
+/* @media screen and (max-width: 767px){
+	
+} */
+.menu-screen{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.back-btn {
+    height: 57%;
+    width: auto;
+}
+.logo{
+    height: 17%;
+    max-width: 100%;
+}
+.user-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 0 0;
+    height: 9%;
+    position: relative;
+    /* top: 0; */
+}
+.user-coin{
+    z-index: 4;
+    margin-right: 8px;
+    position: relative;
+    z-index: 4;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+}
+.user-coin > div{
+    /* background: url(../../assets/img1/homePage/coins_Bg.png) 0/100% 100% no-repeat; */
+    /* font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    padding: 0% 40% 0 5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
+
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+/* .user-coin > div > img{
+    margin-right: 10px;
+    height: 64%;
+    max-width: 40%;
+} */
+.user-coin > img{
+    position: absolute;
+    height: 100%;
+    right: -4px;
+    width: auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.user-coin > div{
+    padding: 7px 45px 8px 5px;
+}
+.user-coin > div > img,.user-coin > div > span{
+    vertical-align: middle;
+}
+.user-coin > div > img{
+    margin-right: 5px;
+}
+.menu-game{
+    margin: 2% -2% 0;
+    height: 25%;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.menu-game > div{
+    padding: 2%;
+    height: 100%;
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 0;
+    max-width: 210px;
+}
+.menu-buttons {
+    display: flex;
+    padding: 5% 0;
+    width: 100%;
+    margin: 0 -2%;
+}
+
+.menu-buttons > div {
+    padding: 0 2%;
+    text-align: center;
+    width: 33.33%;
+    height: 100%;
+}
+
+.menu-buttons > div > a > img {
+    height: 60%;
+    display: block;
+    margin: auto;
+}
+.menu-buttons > div > a > span {
+    color: #fff;
+    font-weight: 500;
+     font-size: 18px; 
+    display: inline-block;
+    margin-top: 7%;
+}
+.menu-buttons > div > a {
+    text-decoration: none;
+    display: block;
+    height: 100%;
+}
+.anchor-game {
+    background: url(../../assets/img1/homePage/Card.png) 0/100% 100% no-repeat;
+    display: block;
+    padding: 5% 5% 10%;
+    height: 100%;
+    /* color: #9a0e0e; */
+    /* color:#006200; */
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 24px;
+}
+.anchor-game div {
+    height: 30%;
+    position: relative;
+}
+.anchor-game div span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%,-50%);
+}
+.yello-btn {
+    background: url(../../assets/img1/homePage/Button_Yellow.png) 0/100% 100%;
+    border: none;
+    width: 96%;
+    position: relative;
+    color: #9a0e0e;
+    font-weight: 600;
+    font-size: 24px;
+    height: 7%;
+    margin-top: 2%;
+}
+.yello-btn img {
+    position: absolute;
+    left: 3px;
+    top: 47%;
+    height: 85%;
+    transform: translateY(-53%);
+}
+
+.anchor-game img {
+    height: 70%;
+}
+@media screen and (max-width: 1400px){
+    .user-coin > div ,.anchor-game ,.yello-btn {
+        font-size: 2.2vmin;
+    }
+    .menu-buttons > div > a > span {
+        font-size: 1.5vmin;
+    }
+    
+    .yello-btn img{
+        height: 80%;
+    }
+}
+@media screen and (max-width: 1200px){
+    .inner-game-wrap{
+        max-width: 1200px;
+    }
+    
+   .anchor-game ,.yello-btn {
+        font-size: 4vw;
+    }
+    .menu-buttons > div > a > span,.anchor-game ,.yello-btn {
+        font-size: 16px;
+    }
+    
+}
+@media screen and (max-width: 767px){
+    .back-header{
+		max-height: 80px;
+	}
+	.back-header h2{
+		font-size: 20px;
+	}
+    .menu-buttons > div > a > span,.anchor-game ,.yello-btn {
+        font-size: 14px;
+    }
+
+	.green-btn,.yellow-btn{
+		font-size: 16px;
+		padding: 0.375rem 0.75rem 0.67rem;
+	}
+    .coinstxt {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .yello-btn {
+        width: 100%;
+    }
+
+}

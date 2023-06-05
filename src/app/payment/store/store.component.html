@@ -1,0 +1,32 @@
+<div class="game-wrap">
+    <div class="back-header store-header">
+        <a (click)="back()" class="back-btn"><img src="../../../assets/img/Store/back.png" alt="back-btn" ></a>
+        <h2>{{this.langModel.componentLang.storeComp.heading[this.langModel.lang]}}</h2>
+            <div class="user-coin">
+                <div>
+                    <img src="../../../assets/img/Store/coins.png">
+                    <span *ngIf="this.global.isClub == false" class="coinstxt">{{this.global.coins}} / {{ this.global.moneyAmt}} KZ</span>
+                    <span *ngIf="this.global.isClub == true" class="coinstxt">{{this.globalClub.coins}} / {{ this.globalClub.moneyAmt}} KZ</span>
+                </div>
+                <!-- <img src="../../../assets/img/Store/addcoins.png">  -->
+            </div> 
+    </div>
+    <div class="pattern">
+    </div> 
+    <div class="inner-game-wrap">
+       <div class="store-container">
+            <div *ngFor="let val of coinArr" (click)="cardClick(val.money)" [ngClass]='val.class' class="store-content">
+                <!-- <span>{{val.coin}}</span>
+                <div class="text">{{this.global.moneyVal * val.coin}} KZ</div> -->
+                <span *ngIf="this.global.isClub == false">{{(val.money / this.global.moneyVal).toFixed(2)}}</span>
+                <span *ngIf="this.global.isClub == true">{{(val.money / this.globalClub.moneyVal).toFixed(2)}}</span>
+                <div class="text">{{val.money}} KZ</div>
+             </div>
+        </div>
+
+    </div>
+</div>
+
+<app-pay-popup (onClick)="onPopupTap($event)"></app-pay-popup>
+
+<ngx-ui-loader></ngx-ui-loader>

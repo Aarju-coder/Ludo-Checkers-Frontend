@@ -1,0 +1,60 @@
+<div *ngIf="isConnect">
+<app-connect-club (connection)="onConnect($event)"></app-connect-club>
+</div>
+<div *ngIf="isClubDetails">
+    <app-club-details (isClaimed)="onClaim($event)" [details]="this.detailData"></app-club-details>
+</div>
+
+<app-popupsuccess></app-popupsuccess>
+
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="./../../../assets/img/Button_back.png" alt="back-btn" class="back-btn"></a>
+        <h2>Clubs</h2>
+    </div>
+    <div class="inner-game-wrap">
+        <!-- <div class="club-row">
+                <div class="club-details" (click)="clubDetails({clubName:'Pedro Club',address:'359,Mike Causeway, Huambo'})">
+                    <img src="../../../assets/img/club/defaultClub.png">
+                    <div>
+                        <div class="club-name">Pedro Club</div>
+                        <div class="club-address"><img src="../../../assets/img/club/pin.png"> <span>359,Mike Causeway, Huambo</span></div>
+                    </div>
+                </div>
+                <a (click)="connectClub()"><img src="../../../assets/img/club/mail.png"></a>
+                
+        </div> -->
+        <div class="loading" *ngIf="clubList.length <= 0">Loading ...</div>
+        <div class="club-row" *ngFor="let item of clubList  | paginate
+        : {
+            itemsPerPage: 10,
+            currentPage: pageNumber,
+            id: 'registeredClub'
+      
+          }">
+            <div class="club-details" (click)="clubDetails(item)">
+                <img *ngIf="item.picByte == null" src="../../../assets/img/club/defaultClub.png">
+                <img *ngIf="item.picByte != null" src='data:image/jpeg;base64,{{item.picByte}}'>
+                <div>
+                    <div class="club-name">{{item.clubName}}</div>
+                    <div class="club-address"><img src="../../../assets/img/club/pin.png"> <span>{{item.address}}</span></div>
+                </div>
+            </div>
+            <a (click)="connectClub(item.clubId)"><img src="../../../assets/img/club/mail.png"></a>
+            
+    </div>
+    <pagination-controls
+    *ngIf="this.clubList.length > 0"
+    id="registeredClub"
+    (pageChange)="getClubPage($event)"
+    class="text-center my-pagination"
+  >
+  </pagination-controls>
+    </div>
+    <div class="club-footer">
+        <a (click)="createClubClicked()" class="create-club">Create Club</a>
+        <a (click)="accessClubClicked()" class="access-club">Access Club</a>
+    </div>
+</div>
+
+<app-messagepopup1></app-messagepopup1>

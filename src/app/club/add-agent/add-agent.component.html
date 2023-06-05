@@ -1,0 +1,53 @@
+
+<app-add-agent-success (isClosed)="agentPopupClosed($event)"></app-add-agent-success>
+
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="./../../../assets/img/Button_back.png" alt="back-btn" class="back-btn" ></a>
+        <h2>Add New Agent</h2>
+    </div>
+    <div class="inner-game-wrap">
+        <form class="login-form create-club">
+            <!-- <div class="form-row">
+                <div class="form-col">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-col">
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div> -->
+            <div class="form-group">
+                <label>Phone / Email</label>
+                <input type="text" class="form-control" [(ngModel)]="this.agentPhnNum" [ngModelOptions]="{ standalone: true }">
+            </div>
+            <!-- <div class="form-group">
+                <label>Phone No</label>
+                <div class="phn-login">
+                    <div class="slct-div">
+                        <select class="form-control">
+                            <option>+244</option>
+                            <option>+243</option>
+                            <option>+245</option>
+                        </select>
+                        <img src="../../../assets/img/Login/Dropdown.png">
+                    </div>
+                    <input type="number" class="form-control">
+                </div>
+            </div> -->
+            <!-- <div class="form-group">
+                <label>Address</label>
+                <textarea class="form-control" rows="4" cols="50"></textarea>
+            </div> -->
+            <button type="button" class="yellow-btn" (click)="addAgent()">Add Agent</button>
+            <button type="button" class="yellow-btn" (click)="addAgentManually()">Add Agent Manually</button>
+        </form>
+    </div>
+    
+</div>
+<app-messagepopup1></app-messagepopup1>

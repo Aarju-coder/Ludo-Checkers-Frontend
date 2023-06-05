@@ -1,0 +1,21 @@
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="../../assets/img/Login/Button_Back.png" alt="back-btn" class="back-btn"></a>
+        <h2>{{this.langModel.componentLang.otpCheck.heading[this.langModel.lang]}}</h2>
+
+    </div>
+    <div class="inner-game-wrap">
+        <p class="msg-txt">
+            {{this.langModel.componentLang.otpCheck.subHeadingNum[this.langModel.lang]}}
+            <br>
+            <span class="bold">{{this.langModel.componentLang.otpCheck.enterNum[this.langModel.lang]}} <span class="yelw-txt">{{phNumber}}</span></span>
+        </p>
+        <form class="login-form">
+            <div class="form-group">
+                <input type="number" class="form-control" [(ngModel)] = "this.otp" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="frgt-pswd">{{this.langModel.componentLang.otpCheck.noOtp[this.langModel.lang]}} <a (click)="resend()">{{this.langModel.componentLang.otpCheck.resend[this.langModel.lang]}}</a></div>
+            <button type="button" class="submit" (click)="checkOtp()">{{this.langModel.componentLang.otpCheck.verify[this.langModel.lang]}}</button>
+        </form>
+    </div>
+</div>

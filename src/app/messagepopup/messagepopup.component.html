@@ -1,0 +1,23 @@
+
+<div class="popup-wrap" *ngIf="isVisible">
+    <div class="popup-container">
+        <div class="popup-body">
+            <div class="newHeading">
+                <span class="name-txt-new ">{{popupMessage}} </span>
+            </div>
+            <div class="button-container">
+                <span *ngIf="type == 'option' ">
+                    <button class="yellow-btn" (click)="onAction('yes')">
+                        {{btnText}}
+                    </button>
+                </span>
+                <span>
+                    <button class="yellow-btn" (click)="close()">
+                        {{closetxt}}
+                    </button>
+                </span>
+
+            </div>
+        </div>
+    </div>
+</div>

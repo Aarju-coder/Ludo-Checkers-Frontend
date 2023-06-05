@@ -1,0 +1,25 @@
+<div class="popup-wrap">
+    <div class="popup-container">
+       <img src="./../../../assets/img/popup/Button_Close.png" alt="close-btn" class="close-btn" (click)="close()">
+       <div class="popup-header">
+           Club Details
+       </div>
+       <div class="popup-body">
+           <div class="club-wrap">
+               <div class="club-avatar">
+                   <!-- <img src="./../../../assets/img/popup/avatar.png"> -->
+                   <!-- <img src="./../../../assets/img/club/defaultClub.png"> -->
+                   <img *ngIf="this.picByte == null" src="./../../../assets/img/club/defaultClub.png">
+                   <img *ngIf="this.picByte != null" src='data:image/jpeg;base64,{{this.picByte}}'>
+               </div>
+               <div class="club-name">{{this.clubName}}</div>
+               <div class="agents"> Agents: <span>{{this.details.totalAgents}}</span> </div>
+           </div>
+           <div class="club-wrap address" style="margin-top: 15px">
+               <h4>ADDRESS</h4>
+               <p>{{this.address}}</p>
+           </div>
+           <div class="text-center" style="margin-top: 20px;"><button type="button" class="green-btn  " (click)="connect()" >Connect</button></div>
+       </div>
+    </div>
+</div>

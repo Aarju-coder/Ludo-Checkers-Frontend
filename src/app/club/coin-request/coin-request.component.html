@@ -1,0 +1,50 @@
+<app-update-coin-request (isAction)="onAction($event)"></app-update-coin-request>
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="./../../../assets/img/Button_back.png" alt="back-btn" class="back-btn"></a>
+        <h2>Coin Requests</h2>
+    </div>
+    <div class="inner-game-wrap">
+        <!-- <div class="club-row" >
+            <div class="club-details" >
+                <div>
+                    <div class="club-name">105 Coins</div>
+                    <div class="club-address">nelson</div>
+                </div>
+            </div>
+            <a  class="detail-btn" ><img src="./../../../assets/img/club/Details.png" (click)="requestClick()"></a>
+        </div> -->
+        <div class="club-row" *ngFor="let data of requests | paginate
+        : {
+            itemsPerPage: 5,
+            currentPage:  pageNumber,
+            id: 'coinRequest',
+            totalItems: total
+      
+          };let k=index">
+            <div class="club-details">
+                <div>
+                    <div class="club-name">{{data.transactionAmountCoins}} Coins</div>
+                <div class="club-address"> {{data.receiverUserName}}</div>
+                </div>
+            </div>
+            <a  class="detail-btn" (click)="requestClick(data,k)"><img src="./../../../assets/img/club/Details.png" ></a>
+        </div>
+        <pagination-controls
+        *ngIf="this.requests.length > 0"
+        id="coinRequest"
+        (pageChange)="getCoinRequestPage($event)"
+        class="text-center my-pagination"
+      >
+      </pagination-controls>
+        <div *ngIf="this.requests.length < 1">
+            <div class="agent-wrap mt-10">
+                <div class="inner-agent-wrap">
+                    <p>No coin request to show!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-messagepopup1></app-messagepopup1>

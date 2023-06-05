@@ -1,0 +1,43 @@
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="../../assets/img/Login/Button_Back.png" alt="back-btn" class="back-btn"></a>
+        <h2>{{this.langModel.componentLang.editProfile.heading[this.langModel.lang]}}</h2>
+    </div>
+    <div class="inner-game-wrap">
+        <div class="profile-container">
+            <div class="profile-photo" >
+                <img (click)="editProfile()" class="avtarImg" src={{avatarimg}}>
+                <img (click)="editProfile()" class="editIcon"src="../../assets/edit_Icon.png">
+                <!-- <img src="../../assets/img/profile/Avatar5_Selected.png" alt="profile-img"> -->
+            </div>
+            <div class="profile-content">
+              <div class="username">	
+                <span>{{this.langModel.componentLang.editProfile.username[this.langModel.lang]}}</span> 
+                <span class="text">{{this.global.userName}}</span>
+              </div>
+              <div class="rank">	
+                <span>{{this.langModel.componentLang.editProfile.rank[this.langModel.lang]}}</span>
+                <span class="text">1200</span>
+              </div>	
+            </div>
+        </div>
+        <div class="wins-container">
+            <div class="wins-content">
+                <span>{{this.langModel.componentLang.editProfile.wins[this.langModel.lang]}}</span>
+                <!-- <span>Vitórias</span> -->
+            </div>
+            <div class="ludo">
+                <span>{{this.langModel.componentLang.editProfile.ludo[this.langModel.lang]}}</span>
+                <!-- <span>Não te irrites:</span> -->
+               
+                <span class="text">{{this.global.winsLudo}}</span>
+            </div>
+            <div class="checkers">
+                <span>{{this.langModel.componentLang.editProfile.checkers[this.langModel.lang]}}</span>
+                <span class="text">{{this.global.winsCheckers}}</span>
+            </div>
+        </div>
+    
+        <button type="submit" class="logout" (click)="logout()" >{{this.langModel.componentLang.editProfile.logout[this.langModel.lang]}}</button>
+    </div>
+ </div>

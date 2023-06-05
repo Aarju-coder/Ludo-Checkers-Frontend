@@ -1,0 +1,37 @@
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="./../../../assets/img/Button_back.png" alt="back-btn" class="back-btn"></a>
+        <h2>Agents</h2>
+    </div>
+    <div class="inner-game-wrap">
+        <div class="club-row" *ngFor="let data of agentList | paginate
+        : {
+            itemsPerPage: 4,
+            currentPage: agentPage,
+            id: 'viewAgent'
+      
+          }">
+            <div class="club-details" >
+                <div>
+                    <div class="club-name">{{data.name}}</div>
+                    <div class="club-address">{{data.address}}</div>
+                </div>
+            </div>
+            <a  class="detail-btn" (click)="agentDetail(data)"><img src="./../../../assets/img/club/Details.png"></a>
+        </div>
+        <pagination-controls
+        *ngIf="this.agentList.length > 0"
+        id="viewAgent"
+        (pageChange)="handleViewAgentPage($event)"
+        class="text-center my-pagination"
+      >
+      </pagination-controls>
+        <div *ngIf="this.agentList.length < 1">
+            <div class="agent-wrap mt-10">
+                <div class="inner-agent-wrap">
+                    <p>No agent list to show!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="../../../assets/img1/Button_Back.png" alt="back-btn" class="back-btn"></a>
+        <h2>{{this.langModel.componentLang.pwfPage.heading[this.langModel.lang]}}</h2>
+    </div>
+    <div class="inner-game-wrap">
+    
+        <div class="redBox select-players">
+            <div class="redBox-header">
+                <span>{{this.langModel.componentLang.pwfPage.roomcode[this.langModel.lang]}}</span>
+            </div>
+            <div class="redBox-body">
+                <form style="width: 100%">
+                    <div class="form-group">
+                        <input type="email" class="form-control text-center" [(ngModel)] = "this.roomCode" [ngModelOptions]="{standalone: true}">
+                    </div>
+                    <button type="submit" class="green-btn" (click)="ludoJoin()">{{this.langModel.componentLang.pwfPage.joinroom[this.langModel.lang]}}</button>
+                </form>
+            </div>
+        </div>
+        <div class="ortxt">{{this.langModel.componentLang.pwfPage.or[this.langModel.lang]}}</div>
+        <button class="yellow-btn" (click)="create()">{{this.langModel.componentLang.pwfPage.create[this.langModel.lang]}}</button>
+        
+    
+    
+    </div>
+</div>
+<app-messagepopup (isClaimed)="onClaim($event)"></app-messagepopup>

@@ -1,0 +1,114 @@
+.loading-screen{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+.social-btn{
+    display: block;
+    color: #041966;
+    font-size: 24px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 4%;
+    position: relative;
+}
+.social-btn span,.social-btn .social-icon{
+    position: absolute;
+    top: 46%;
+    transform: translateY(-54%);
+}
+.social-btn .social-icon{
+    left: 4%;
+}
+.social-btn span{
+    white-space: nowrap;
+    left: 25%;
+}
+.logo{
+    max-height: 200px;
+    max-width: 100%;
+    margin-bottom: 10%;
+}
+.lang-select {
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+    padding: 0.6em 1em 0.6em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.radio-custom {
+    opacity: 0;
+    position: absolute;   
+}
+.radio-custom, .radio-custom-label {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    cursor: pointer;
+}
+.radio-custom:focus-visible, .radio-custom-label:focus-visible,
+.eng-lang:focus-visible,.oth-lang:focus-visible,
+.eng-lang input:focus,.oth-lang input:focus{
+    outline: none;
+}
+.radio-custom-label {
+    position: relative;
+}
+.radio-custom + .radio-custom-label:before {
+    content: '';
+    background: #fff;
+    border: 2px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    margin-right: 10px;
+    text-align: center;
+    background: url("./../../../assets/img/Settings/radio_off.png") 0/100% 100% no-repeat;
+    margin-top: -6px;
+    box-sizing: border-box;
+}
+.radio-custom + .radio-custom-label:before {
+    border-radius: 50%;
+}
+
+.radio-custom:checked + .radio-custom-label:before {
+    content: "";
+    font-family: 'FontAwesome';
+    background: url("./../../../assets/img/Settings/radio_on.png") 0/100% 100% no-repeat;
+}
+@media screen and (max-width: 767px){
+    img.logo {
+        height: 25%;
+    }
+
+    .social-btn {
+        font-size: 100%;
+        height: 8%;
+    }
+
+    .social-btn img:first-child {
+        width: 100%;
+        height: 100%;
+    }
+    .social-btn .social-icon {
+        height: 55%;
+    }
+    .lang-select {
+        font-size: 18px;
+        padding: 1em 1em;
+    }
+
+    .radio-custom + .radio-custom-label:before {
+        width: 25px;
+        height: 25px;
+        margin-top: -4px;
+        margin-right: 8px;
+    }
+}

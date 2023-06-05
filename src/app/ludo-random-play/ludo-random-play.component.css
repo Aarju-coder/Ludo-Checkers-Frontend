@@ -1,0 +1,179 @@
+.back-header h2{
+	color: #ffDC00;
+}
+.inner-game-wrap {
+    height: calc(100% - 80px);
+    overflow: auto;
+}
+
+input[type='radio']{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-top: 0; 
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    margin: 0;
+}
+
+input[type='radio']:after {
+    
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #0060de; 
+    content: '';
+    background: url(../../assets/img1/radio_off.png) 0/100% 100% no-repeat;
+    display: inline-block;
+    visibility: visible;
+    border: 1px solid #fff;
+}
+
+input[type='radio']:checked:after {
+    background: url(../../assets/img1/radio_on.png) 0/100% 100% no-repeat;
+}
+.lang-select{
+    padding: 1% 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+}
+.lang-select label{
+    margin-left: 10px;
+}
+
+.green-btn,.yellow-btn{
+	width: 100%;
+	margin-top: 2rem;
+}
+.green-btn{
+	color: #fff;
+}
+.yellow-btn{
+	background: url(../../assets/img1/Button_Yellow.png) 0/100% 100% no-repeat;
+	color: #9a0e0e;
+}
+.text-center{
+	text-align: center;
+}
+.redBox{
+    /* background-color: #850808; */
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+.redBox-header{
+    text-align: center;
+    padding: 10px 0;
+    background: url(../../assets/img1/panel_Header.png) 0/100% 100% no-repeat;
+    color: #9a0e0e;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+}
+.redBox-body{
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+    padding: 0.6em 1em 0.6em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #ffe01f;
+    border-top: 0;
+    border-radius: 0 0 10px 10px;
+}
+.two-player,.four-player{
+    white-space: nowrap;
+}
+
+.two-player:focus-visible,.four-player:focus-visible,
+.two-player input:focus,.four-player input:focus{
+    outline: none;
+}
+.redBox-body .board{
+    padding: 0 5px;
+}
+.redBox-body .board a{
+    background: url(../../assets/img1/randomPlay/unselectedboard.png) 0/100% 100% no-repeat;
+    padding: 10px;
+    display: block;
+}
+.redBox-body .board a img{
+    vertical-align: middle;
+}
+.redBox-body .board.selected a{
+    background: url(../../assets/img1/randomPlay/selectedboard.png) 0/100% 100% no-repeat;
+}
+.bet-box {
+    background: url(../../assets/img1/randomPlay/textbox.png) 0/100% 100% no-repeat;
+    width: 100%;
+    font-weight: 500;
+    padding: 10px;
+    margin: 0 10px;
+}
+.bet-box > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+}
+.bet-box > div+div {
+    margin-top: 8px;
+}
+.bet-box > div > span {
+    color: #ffDC00;
+}
+.select-bets img,
+.bet-box > div > div > span{
+    vertical-align: middle;
+}
+.bet-box > div > div > img{
+    margin-right: 10px;
+}
+.bet-box > div > div {
+    min-width: 70px;
+}
+@media screen and (max-width: 1400px){
+    .inner-game-wrap.ludo-random-play {
+        max-width: 400px;
+    }
+    .redBox-header{
+        font-size: 18px;
+    }
+    .green-btn, .yellow-btn{
+        font-size: 18px;
+        margin-top: 1.5rem;
+    }
+    .redBox-body {
+        font-size: 13px;
+    }
+}
+@media screen and (max-width: 767px){
+    .redBox-body {
+        font-size: 13px;
+        padding: 1em 1em;
+    }
+    .redBox-header{
+        font-size: 16px;
+    }
+    .redBox-body > a > img{
+        width: 30px;
+    }
+    .eng-lang img,.oth-lang img {
+        width: 35px;
+    }
+    input[type='radio'], input[type='radio']:after {
+        width: 25px;
+        height: 25px;
+    }
+	.green-btn,.yellow-btn{
+		font-size: 16px;
+	}
+}

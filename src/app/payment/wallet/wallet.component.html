@@ -1,0 +1,33 @@
+<div class="game-wrap">
+    <div class="back-header">
+        <a (click)="back()"><img src="../../../assets/img/MyWallet/Button_back.png" alt="back-btn" class="back-btn"></a>
+        <h2>{{this.langModel.componentLang.walletComp.heading[this.langModel.lang]}}</h2>
+    </div>
+    <div class="inner-game-wrap">
+        <div class="coins-content">
+            <div class="coins-wallet">
+                <div>
+                    <img src="../../../assets/img/MyWallet/coins.png" alt="Coins">
+                    <span>{{this.langModel.componentLang.walletComp.coins[this.langModel.lang]}}:</span>
+                </div>
+                <span class="text">{{this.global.coins}}</span>
+            </div>
+        </div>
+        <div class="balance-content">
+            <div class="balance">
+                <div>
+                    <img src="../../../assets/img/MyWallet/wallet.png" alt="Wallet">
+                    <span>{{this.langModel.componentLang.walletComp.balance[this.langModel.lang]}}:</span>
+                    <!-- <span>Valor Disponivel:</span> -->
+                </div>
+                <span class="text">{{this.global.moneyAmt}} KZ</span>
+            </div>
+        </div>  
+        
+        <!-- <button type="submit" class="redeem-btn" (click)="redeem()">{{this.langModel.componentLang.walletComp.redeem[this.langModel.lang]}}</button> -->
+        <button type="submit" class="payment-btn" (click)="history()">{{this.langModel.componentLang.walletComp.paymentHist[this.langModel.lang]}}</button>
+        <button type="submit" class="payment-btn" (click)="refList()">{{this.langModel.componentLang.walletComp.refList[this.langModel.lang]}}</button>
+
+
+    </div>
+</div>

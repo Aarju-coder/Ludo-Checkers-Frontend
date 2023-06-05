@@ -1,0 +1,127 @@
+.game-wrap-bg{
+	max-width: inherit;
+	/* background-image: url(../../assets/img/Repeatable_Bg.png),url(../../assets/images/Stretchable_BG.png); */
+	background-size: auto,100% 100%;
+	background-repeat: repeat,no-repeat;
+	height: 100%;
+	margin: auto;
+}
+.inner-game-wrap{
+    /* height: calc(100% - 255px); */
+    overflow-y: auto;
+}
+.back-header{
+	background: url(../../assets/img1/Header_Stretchable.png) 0/100% 100% no-repeat;
+    height: 20vh;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back-btn{
+	position: absolute;
+    left: 5%;
+    top: 46%;
+    transform: translateY(-50%);
+    width: 50px;
+}
+.back-btn {
+    height: 57%;
+    width: auto;
+}
+.back-header h2{
+	font-weight: 600;
+	font-size: 31px;
+	color: #ffDC00;
+	margin: -10px 0 0;
+}
+.user-wrap {
+    /* background: #850808; */
+    border: 2px solid #ffe01f;
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.user-wrap > div:first-child {
+    display: flex;
+    align-items: center;
+}
+
+.user-wrap > div:first-child img {
+    width: 75px;
+    margin-right: 10px;
+}
+
+.user-wrap .user-inner .user-name {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.user-wrap .user-inner .user-details span {
+    color: #ffDC00;
+}
+
+.user-wrap > div:nth-child(2) img {
+    width: 35px;
+}
+.my-user-details{
+    padding: 20px 50px;
+    position: absolute;
+    bottom: 0;
+    background: url(../../assets/img1/leaderboard/Footer.png);
+    width: 100%;
+}
+.my-user-details-inner{
+    max-width: 400px;
+    margin: auto ;
+}
+.my-user-details-inner .user-wrap {
+    margin: 0;
+}
+@media screen and (max-width: 767px){
+    .back-header{
+		max-height: 80px;
+	}
+	.back-header h2{
+		font-size: 20px;
+	}
+    .back-btn {
+        width: 40px;
+    }
+    .inner-game-wrap{
+        padding: 0 20px;
+    }
+    .my-user-details{
+        padding: 10px 20px;
+    }
+    .user-wrap {
+        font-size: 15px;
+        margin-top: 0.5rem;
+    }
+    .user-wrap .user-inner .user-name {
+        font-size: 16px;
+    }
+    .user-wrap > div:first-child img{
+        width: 50px;
+    }
+    .user-wrap > div:nth-child(2) img{
+        width: 25px;
+    }
+    .my-user-details-inner{
+        max-width: 460px;
+    }
+    .inner-game-wrap{
+        /* height: calc(100% - 176px); */
+        }
+}

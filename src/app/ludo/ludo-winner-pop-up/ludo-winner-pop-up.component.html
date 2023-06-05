@@ -1,0 +1,142 @@
+<div class="popup-wrap" *ngIf="isVisible">
+  <div class="winner-container">
+    <div class="inner-container">
+          <img src="../../../assets/img1/Winner_Screen/rays.png" alt="rays" class="rays-img">
+          <div *ngIf="(!isTourney && tourEnded) || (isTourney && !tourEnded)" class="winner-text">
+            {{this.langModel.componentLang.ingame.winner[this.langModel.lang]}}
+           </div>
+           <div *ngIf="isTourney && tourEnded" class="winner-text">
+            {{heading}}
+           </div>
+           <!-- <div *ngIf="gameType == 'Checkers'" class="winner-img">
+            <div class="winner-img-inner"> <img src="../../../assets/img1/Winner_Screen/crown.png" class="crown">
+             <img src={{winnerAvatar}} class="avatar" alt="avatar" id="winnerPopupAvatar"></div>
+               <span>{{winnerName}}</span>
+               <div *ngIf="!isTourney || (isTourney && tourEnded)" class="coin-container">
+                   <img src="../../../assets/img1/Winner_Screen/coins.png" alt="coin-img">
+                     <span>{{winnerAmt}}</span>
+               </div>
+            </div> -->
+
+       <!-- <div *ngIf="gameType == 'Ludo'" class="winner-img">
+        <div class="winner-img-inner"> <img src="../../../assets/img1/Winner_Screen/crown.png" class="crown">
+         <img src={{winnerAvatar}} class="avatar" alt="avatar" id="winnerPopupAvatar"></div>
+           <p>1. {{winnerName}}</p>
+           <p *ngIf="secondRank">2. {{secondRank}}</p>
+           <p *ngIf="thirdRank">3. {{thirdRank}}</p>
+           <div *ngIf="!isTourney || (isTourney && tourEnded)" class="coin-container">
+               <img src="../../../assets/img1/Winner_Screen/coins.png" alt="coin-img">
+                 <span>{{winnerAmt}}</span>
+           </div>
+        </div> -->
+
+        <div class="user-wrap">
+          <div > 
+            <img *ngIf="!isTourney || (isTourney && tourEnded)" src="../../../assets/img1/Winner_Screen/crown.png" class="multCrown">
+           <img src={{winnerAvatar}} class="user-img" alt="avatar" id="winnerPopupAvatar">
+            <div class="user-inner">
+              <div class="user-name">{{winnerName}}</div>
+                    <div class="user-details">
+                      <span>{{this.langModel.componentLang.leaderboard.rank[this.langModel.lang]}} </span>1
+                       </div>
+            </div> 
+            </div>
+             <div *ngIf="!isTourney || (isTourney && tourEnded)" class="multCoin-container">
+                 <img src="../../../assets/img1/Winner_Screen/coins.png" alt="coin-img">
+                   <span>{{winnerAmt}}</span>
+             </div>
+          </div>
+  
+          <div *ngIf="secondRank " class="user-wrap">
+            <div > 
+             <img src={{secondAvatar}} class="user-img" alt="avatar" id="winnerPopupAvatar">
+              <div class="user-inner">
+                <div class="user-name">{{secondRank}}</div>
+                      <div class="user-details">
+                        <span>{{this.langModel.componentLang.leaderboard.rank[this.langModel.lang]}} </span>2
+                         </div>
+              </div> 
+              </div>
+               <div *ngIf="isTourney && tourEnded"  class="multCoin-container">
+                   <img src="../../../assets/img1/Winner_Screen/coins.png" alt="coin-img">
+                     <span>{{secondAmt}}</span>
+               </div>
+            </div>
+
+            <div *ngIf="gameType == 'Ludo' && thirdRank " class="user-wrap">
+              <div > 
+               <img src={{thirdAvatar}} class="user-img" alt="avatar" id="winnerPopupAvatar">
+                <div class="user-inner">
+                  <div class="user-name">{{thirdRank}}</div>
+                        <div class="user-details">
+                          <span>{{this.langModel.componentLang.leaderboard.rank[this.langModel.lang]}} </span>3
+                           </div>
+                </div> 
+                </div>
+                 <div *ngIf="isTourney && tourEnded" class="multCoin-container">
+                     <img src="../../../assets/img1/Winner_Screen/coins.png" alt="coin-img">
+                       <span>{{thirdAmt}}</span>
+                 </div>
+              </div>
+
+      </div> 
+   <div class="button-container">
+       <button *ngIf="!isTourney" type="submit" class="play-btn yellow-btn" (click)="goToLobby()">{{this.langModel.componentLang.ingame.playagain[this.langModel.lang]}}</button>
+      <button type="submit" class="green-btn home-btn" (click)="goToHome()">{{this.langModel.componentLang.ingame.home[this.langModel.lang]}}</button>
+    </div> 
+ </div>
+</div>
+
+<!-- <div class="popup-wrap">
+  <div class="winner-container">
+    <div class="inner-container">
+          <img src="../../../assets/img1/Winner_Screen/rays.png" alt="rays" class="rays-img">
+          <div class="winner-text">
+            Winner
+           </div>
+           <div *ngIf="isTourney && tourEnded" class="winner-text">
+            {{heading}}
+           </div>
+           
+
+       <div class="user-wrap">
+        <div > 
+          <img src="../../../assets/img1/Winner_Screen/crown.png" class="multCrown">
+         <img src="../../../assets/img/profile/Avatar0.png" class="user-img" alt="avatar" id="winnerPopupAvatar">
+          <div class="user-inner">
+            <div class="user-name">Kavya</div>
+                  <div class="user-details">
+                    <span>Rank: </span>1
+                     </div>
+          </div> 
+          </div>
+           <div class="multCoin-container">
+               <img src="../../../assets/img1/Winner_Screen/coins.png" alt="coin-img">
+                 <span>20</span>
+           </div>
+        </div>
+
+        <div class="user-wrap">
+          <div > 
+           <img src="../../../assets/img/profile/Avatar0.png" class="user-img" alt="avatar" id="winnerPopupAvatar">
+            <div class="user-inner">
+              <div class="user-name">Nadilson</div>
+                    <div class="user-details">
+                      <span>Rank: </span>2
+                       </div>
+            </div> 
+            </div>
+             <div class="multCoin-container">
+                 <img src="../../../assets/img1/Winner_Screen/coins.png" alt="coin-img">
+                   <span>20</span>
+             </div>
+          </div>
+
+
+   <div class="button-container">
+       <button  type="submit" class="play-btn yellow-btn" (click)="goToLobby()">Home</button>
+       <button  type="submit" class="green-btn home-btn" (click)="goToHome()">Play again</button>
+    </div> 
+ </div>
+</div> -->
+

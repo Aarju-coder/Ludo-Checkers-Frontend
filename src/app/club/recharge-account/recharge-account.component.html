@@ -1,0 +1,29 @@
+<div *ngIf="isVisible">
+
+    <div class="popup-wrap">
+        <div class="popup-container">
+           <img src="../../../assets/img/popup/Button_Close.png" alt="close-btn" class="close-btn" (click)="close()">
+           <div class="popup-header">
+               Recharge Account
+           </div>
+           <div class="popup-body">
+               <form class="login-form">
+                   <div class="form-group">
+                       <label>Phone Num / Email</label>
+                       <input type="text" class="form-control" [(ngModel)]="this.playerID" [ngModelOptions]="{ standalone: true }">
+                   </div>
+                   <!-- <div class="form-group">
+                       <label>Amount</label>
+                       <input type="number" class="form-control">
+                   </div> -->
+                   <div class="form-group">
+                       <label>Coins</label>
+                       <input type="text" class="form-control blue-bg" [(ngModel)]="this.Tcoin" [ngModelOptions]="{ standalone: true }">
+                   </div>
+                   <span class="error" style="color:red">{{this.error}}</span>
+                   <div class="text-center" style="margin-top: 20px;"><button type="button" class="green-btn  " (click)="recharge()">Recharge</button></div>
+               </form>
+           </div>
+        </div>
+    </div>
+</div>
